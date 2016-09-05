@@ -1,0 +1,19 @@
+def get_neural_net_configuration():
+	nn_params = {}
+	nn_params['sampling_frequency'] = 8000
+	#Number of hidden dimensions.
+	#For best results, this should be >= freq_space_dims, but most consumer GPUs can't handle large sizes
+	nn_params['hidden_dimension_size'] = 3072
+	#Number of recurrent units.
+	nn_params['recurrent_units'] = 3
+	#Training batch size.
+	nn_params['batch_size'] = 32
+	#Stetefulness of the Model in use.
+	nn_params['stateful'] = False
+	#The weights filename for saving/loading trained models
+	nn_params['model_basename'] = './%s_%s_Parker/Parker' % (nn_params['hidden_dimension_size'], nn_params['recurrent_units'])
+	#The model filename for the training data
+	nn_params['model_file'] = './datasets/ParkerNP'
+	#The dataset directory
+	nn_params['dataset_directory'] = './datasets/Parker/'
+	return nn_params

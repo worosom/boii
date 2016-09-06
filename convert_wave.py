@@ -6,7 +6,7 @@ import sys
 config = nn_config.get_neural_net_configuration(0)
 input_directory = config['dataset_directory']
 output_filename = config['model_file']
-freq = config['sampling_frequency'] #sample frequency in Hz
+freq = config['samplerate'] #sample frequency in Hz
 
 clip_len = 5 		#length of clips for training. Defined in seconds
 block_size = 512 #block sizes used for training - this defines the size of our input state

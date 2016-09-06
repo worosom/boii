@@ -6,10 +6,10 @@ import numpy as np
 import alsaaudio as alsa
 import os
 import nn_utils.network_utils as network_utils
-import gen_utils.seed_generator as seed_generator
-import gen_utils.sequence_generator as sequence_generator
+import utils.seed_generator as seed_generator
+import utils.sequence_generator as sequence_generator
 import utils.parse_files as files
-import config.nn_config as nn_config
+import utils.config.nn_config as nn_config
 import time as now
 import utils.audio as au
 

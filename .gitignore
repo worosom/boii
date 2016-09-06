@@ -87,3 +87,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# .AppleDouble
+.AppleDouble
+
+# Exceptionally large files
+datasets/
+model_weights/768_8_Chopin/768_8_Chopin

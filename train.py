@@ -12,7 +12,7 @@ from keras.callbacks import LearningRateScheduler
 from keras.callbacks import ModelCheckpoint
 
 config = nn_config.get_neural_net_configuration(int(sys.argv[1]))
-freq = config['sampling_frequency']
+freq = config['samplerate']
 batch_size = config['batch_size']	#Number of training examples pushed to the GPU per batch.
 stateful = config['stateful']		#Larger batch sizes require more memory, but training will be faster
 inputFile = config['model_file']

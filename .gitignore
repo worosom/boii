@@ -90,10 +90,7 @@ ENV/
 
 # .AppleDouble
 .AppleDouble
-<<<<<<< HEAD
 
 # Exceptionally large files
-datasets/
-model_weights/
-=======
->>>>>>> 7cd099e5b0877f00c46c2300b061600688625521
+datasets/*
+model_weights/*

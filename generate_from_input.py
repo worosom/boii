@@ -12,6 +12,7 @@ import utils.parse_files as files
 import utils.config.nn_config as nn_config
 import time as now
 import utils.audio as au
+from keras.callbacks import LearningRateScheduler
 
 class Generate:
 
@@ -21,7 +22,7 @@ class Generate:
 	def __init__(self):
 		self.models = []
 		self.audio = au.Audio()
-		self.freq_dims = self.audio.config['buffersize'] * 2 - 2
+		self.freq_dims = self.audio.config['buffersize'] * 2 -2
 		self.input_shape = (1, 1, self.freq_dims)
 		#self.model = self.load_model(config_number=int(sys.argv[1]),num_iters=int(sys.argv[2]))
 
@@ -31,7 +32,7 @@ class Generate:
 		print ('Loading mean and variance data...')
 		self.X_mean = np.load(inputFile + '_mean.npy')
 		self.X_var = np.load(inputFile + '_var.npy')
-		self.X_train = np.load(inputFile + '_x.npy')
+		#self.X_train = np.load(inputFile + '_x.npy')
 		print ('Done.')
 	
 	def load_model(self, config_number, num_iters):
@@ -42,67 +43,67 @@ class Generate:
 		config = nn_config.get_neural_net_configuration(config_number)
 		pprint.PrettyPrinter(indent=4).pprint(config)
 		
+		model_name = config['model_name']
+		model_weight_dir = './model_weights/%s' % (model_name)
+		model_filename = '%s/%s' % (model_weight_dir, model_name)
+
 		"""
-			Run a method to compile the model	"""
-		model = network_utils.create_lstm_rnn(
+			Run the method to compile the model	"""
+		model = network_utils.create_blstm_rnn(
 		num_hidden_dimensions = config['hidden_dimension_size'],
+		max_hidden_dimension_size = config['max_hidden_dimension_size'],
 		num_recurrent_units = config['recurrent_units'],
 		input_shape = self.input_shape,
-		stateful = config['stateful'])
+		stateful = config['stateful'],
+		lrate = .1)
 	
 		"""
 			Load the weights generated during training	"""
-		model_filename = config['model_basename'] + str(num_iters)
 		print('Loading model weights from \n %s' % model_filename)
 		model.load_weights(model_filename)
 		return model
 	
+	def get_lrate(epoch):
+		return
+
 	def generate(self):
+		#lrate = LearningRateScheduler(get_lrate)
 		print ('Starting generation!')
 		fb = np.zeros(self.input_shape)
+		#self.models[0].predict(fb)
+		self.audio.run()
 		while True:
 			data = self.audio.read()
+			#data -= self.X_mean
+			#data /= self.X_var
 			seed = np.reshape(data, self.input_shape)
-			seed = (fb + seed) * (2./3.)
+			seed = (fb + seed)
 			#out = np.zeros(self.input_shape)
 			#for model in self.models:
 			#	out += model.predict(seed)
 			#out /= len(self.models)
 			out = self.models[0].predict(seed)
-			fb = self.models[1].predict(out)
-			#fb = (seed - out) * .5
+			#self.models[0].fit(out, seed, nb_epoch=1, verbose=0)
+			#fb = self.models[1].predict(out)
+			fb = out
 			#output = seed
 			output = np.reshape(out, (self.freq_dims,))
+			#output *= self.X_var
+			#output += self.X_mean
 			self.audio.write(output)
-	
-	def generate_batch(self):
-		print ('Starting generation!')
-		fb = np.zeros(self.input_shape)
-		while True:
-			data = []
-			while len(data) < self.input_shape[1]:
-				data.append(self.audio.read())
-			seed = np.reshape(data, self.input_shape)
-			seed = fb + seed
-			out = np.zeros(self.input_shape)
-			out = self.models[0].predict_on_batch(seed)
-			fb = self.models[1].predict_on_batch(out)
-			output = np.reshape(out, self.input_shape[1:])
-			for output in out:
-				self.audio.write(output)
 
 	def load_models(self):
 		args = sys.argv[1:]
 		i = 0
 		for arg in args:
-			self.models.append(self.load_model(i+1, arg))
+			self.models.append(self.load_model(i+0, arg))
 			i += 1
 	
 	def run(self):
 		#generate(self.models[0], self.models[1], self.models[2], 4000)
 		print('Initializing audio generation process...')
+		self.load_training_data(2)
 		self.load_models()
-		self.audio.run()
 		self.generate()
 
 if __name__ == '__main__':

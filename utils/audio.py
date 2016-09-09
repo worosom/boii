@@ -11,10 +11,11 @@
 debug = False
 import pprint
 import numpy as np
-from scipy import signal
+import scipy
 import alsaaudio as alsa
 from multiprocessing import Process, Queue
 from config.audio_config import get_audio_config
+import pywt
 
 class Audio:
 	
@@ -26,8 +27,9 @@ class Audio:
 		print('Audio configuration:')
 		pprint.PrettyPrinter(indent=4).pprint(self.config)
 		print('__')
-		self.__read_queue = Queue(maxsize=self.config['pre_post'])
+		self.__read_queue = Queue()
 		self.__write_queue = Queue()
+		self.__input_level = 0.
 	
 	"""
 	Set up audio capture.
@@ -82,7 +84,7 @@ class Audio:
 			np_audio = np.asarray(self.__write_queue.get(),dtype=float)
 			np_audio *= self.config['maxvalue']
 			data = np_audio.astype(self.config['datatype'])
-			outp.write(data)			
+			outp.write(data)
 
 	"""
 	Pre-post data into the output buffer to avoid buffer underrun.
@@ -109,8 +111,10 @@ class Audio:
 		buf = []
 		while len(buf) < self.config['buffersize']:
 			buf.extend(self.__read_queue.get())
+		self.__input_level = np.mean(np.abs(buf))
 		if not self.config['time_domain']:
 			buf = time_block_to_fft_block(block=buf)
+			#buf = time_block_to_wavelet_block(buf)
 		return buf
 
 	"""
@@ -119,18 +123,25 @@ class Audio:
 	def write(self, np_audio):
 		if not self.config['time_domain']:
 			data = fft_block_to_time_block(block=np_audio.copy())
+			#data = wavelet_block_to_time_block(np_audio)
 		else:
 			data = np_audio
 		#print(data)
 		self.__write_queue.put(data)
 		#print(self.__write_queue.qsize())
 	
+	def get_input_level(self):
+		return self.__input_level
+
 	def loopback(self):
 		while True:
 			data = self.read()
-			#print(data)
+			print(data)
 			self.write(data)
 
+"""
+Returns an numpy array of signed random samples centered around 0
+"""
 def noise(bufsize=512, amplitude=.5):
 	sample = np.random.random_sample(size=bufsize)
 	sample -= .5
@@ -172,9 +183,6 @@ def time_blocks_to_fft_blocks(blocks):
 Converts a real signal in frequency space into time space. 
 """
 def fft_block_to_time_block(block):
-	#real_chunk = np.real(block)
-	#imag_chunk = np.imag(block[::-1])
-	#new_block = real_chunk + 1.0j * imag_chunk
 	time_block = np.fft.ihfft(block)
 	return np.real(time_block)
 
@@ -184,19 +192,19 @@ def fft_blocks_to_time_blocks(blocks):
 		time_blocks.append(fft_block_to_time_block(block))
 	return time_blocks
 
-#def time_block_to_fft_block(block):
-#	fft_block = np.fft.fft(block)
-#	new_block = np.concatenate((np.real(fft_block), np.imag(fft_block)))
-#	return new_block
-#
-#def fft_block_to_time_block(block):
-#	num_elems = block.shape[0] / 2
-#	real_chunk = block[0:num_elems]
-#	imag_chunk = block[num_elems:]
-#	new_block = real_chunk + 1.0j * imag_chunk
-#	time_block = np.fft.ifft(new_block)
-#	return time_block
+"""
+
+"""
+def time_block_to_wavelet_block(block):
+	cA, cD = pywt.dwt(block, 'db4')
+	return np.concatenate((cA,cD,))
+
+def wavelet_block_to_time_block(block):
+	cA = block[:len(block)/2]
+	cD = block[len(block)/2:]
+	return pywt.idwt(cA, cD, 'db4')
 
 if __name__ == '__main__':
 	a = Audio()
+	a.run()
 	a.loopback()

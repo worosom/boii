@@ -1,9 +1,11 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import scipy.io.wavfile as wav
 import numpy as np
 from pipes import quote
-from config import nn_config
-from audio import *
+from utils.config import nn_config
+from utils.audio import *
 
 def convert_mp3_to_wav(filename, sample_frequency):
 	ext = filename[-4:]
@@ -71,23 +73,13 @@ def read_wav_as_np(filename):
 	#np_arr = np.array(np_arr)
 	return np_arr, data[0]
 
-def input_stream_as_np(data):
-	np_arr = np.fromstring(data,dtype='int16').astype('float32')
-	np_arr = np_arr / 32767.0
-	return np_arr
-
-def np_audio_as_output_stream(np_audio):
-	data = np_audio * 32767.0
-	data = data.astype('int16')
-	return data
-
 def write_np_as_wav(X, sample_rate, filename):
 	Xnew = X * 32767.0
 	Xnew = Xnew.astype('int16')
 	wav.write(filename, sample_rate, Xnew)
 	return
 
-def convert_wav_files_to_nptensor(directory, block_size, max_seq_len, out_file, max_files=20, time_domain=False):
+def convert_wav_files_to_nptensor(directory, block_size, max_seq_len, out_file, max_files=1000, time_domain=False):
 	files = []
 	for file in os.listdir(directory):
 		if file.endswith('.wav'):
@@ -105,15 +97,16 @@ def convert_wav_files_to_nptensor(directory, block_size, max_seq_len, out_file, 
 		X, Y = load_training_example(file, block_size, time_domain=time_domain)
 		cur_seq = 0
 		total_seq = len(X)
-		print(total_seq)
-		print(max_seq_len)
+		print('Total Length of example: %d' % total_seq)
+		print('Total Length of example Y: %d' % len(Y))
+		print('Maximum sequence length: %d' % max_seq_len)
 		while cur_seq + max_seq_len < total_seq:
 			chunks_X.append(X[cur_seq:cur_seq+max_seq_len])
 			chunks_Y.append(Y[cur_seq:cur_seq+max_seq_len])
 			cur_seq += max_seq_len
 		print('Saved example ', (file_idx+1), ' / ',num_files)
 	num_examples = len(chunks_X)
-	num_dims_out = block_size * 2 - 2
+	num_dims_out = 518
 	if(time_domain):
 		num_dims_out = block_size
 	out_shape = (num_examples, max_seq_len, num_dims_out)
@@ -129,8 +122,10 @@ def convert_wav_files_to_nptensor(directory, block_size, max_seq_len, out_file, 
 
 	np.save(out_file+'_mean', mean_x)
 	np.save(out_file+'_var', std_x)
-	np.save(out_file+'_x', chunks_X)
-	np.save(out_file+'_y', chunks_Y)
+	print('Writing NP_x... ')
+	np.save(out_file+'_x', np.float32(chunks_X))
+	print('Writing NP_y... ')
+	np.save(out_file+'_y', np.float32(chunks_Y))
 	print('Done!')
 
 def convert_nptensor_to_wav_files(tensor, indices, filename, time_domain=False):

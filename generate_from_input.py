@@ -49,13 +49,13 @@ class Generate:
 
 		"""
 			Run the method to compile the model	"""
-		model = network_utils.create_blstm_rnn(
+		model = network_utils.create_lstm_rnn(
 		num_hidden_dimensions = config['hidden_dimension_size'],
 		max_hidden_dimension_size = config['max_hidden_dimension_size'],
 		num_recurrent_units = config['recurrent_units'],
 		input_shape = self.input_shape,
 		stateful = config['stateful'],
-		lrate = .1)
+		lrate = .0)
 	
 		"""
 			Load the weights generated during training	"""
@@ -63,14 +63,15 @@ class Generate:
 		model.load_weights(model_filename)
 		return model
 	
-	def get_lrate(epoch):
-		return
+	def input_volume(self, epoch):
+		return self.audio.get_input_level()
 
 	def generate(self):
-		#lrate = LearningRateScheduler(get_lrate)
+		lrate = LearningRateScheduler(self.input_volume)
+		callbacks_list = [lrate,]
 		print ('Starting generation!')
 		fb = np.zeros(self.input_shape)
-		#self.models[0].predict(fb)
+		self.models[0].predict(fb)
 		self.audio.run()
 		while True:
 			data = self.audio.read()
@@ -83,7 +84,7 @@ class Generate:
 			#	out += model.predict(seed)
 			#out /= len(self.models)
 			out = self.models[0].predict(seed)
-			#self.models[0].fit(out, seed, nb_epoch=1, verbose=0)
+			#self.models[0].fit(out, seed, nb_epoch=1, verbose=1, callbacks=callbacks_list)
 			#fb = self.models[1].predict(out)
 			fb = out
 			#output = seed
@@ -96,7 +97,7 @@ class Generate:
 		args = sys.argv[1:]
 		i = 0
 		for arg in args:
-			self.models.append(self.load_model(i+0, arg))
+			self.models.append(self.load_model(i+1, arg))
 			i += 1
 	
 	def run(self):

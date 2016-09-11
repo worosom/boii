@@ -58,11 +58,11 @@ def load_paramenters():
 		recurrent_units = 2
 	"""
 	nn_params[1] = nn_params[0].copy()
-	nn_params[1]['batch_size'] = 143
+	nn_params[1]['batch_size'] = 583
 	#nn_params[1]['batch_size'] = 53
-	nn_params[1]['recurrent_units'] = 4
-	nn_params[1]['hidden_dimension_size'] = 511
-	nn_params[1]['max_hidden_dimension_size'] = 1533
+	nn_params[1]['recurrent_units'] = 2
+	nn_params[1]['hidden_dimension_size'] = 1022
+	nn_params[1]['max_hidden_dimension_size'] = 1022
 	nn_params[1]['model_name'] = get_model_name(
 		nn_params[1]['hidden_dimension_size'],
 		nn_params[1]['recurrent_units'],

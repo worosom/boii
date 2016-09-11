@@ -28,8 +28,8 @@ epochs_per_iter = 250				#Number of iterations before we save our model
 def loadData():
 	#X_train is a tensor of size (num_train_examples, num_timesteps, num_frequency_dims)
 	#Y_train is a tensor of size (num_train_examples, num_timesteps, num_frequency_dims)
-	X_train = np.load(inputFile + '_x.npy')
-	Y_train = np.load(inputFile + '_y.npy')
+	X_train = np.load(config['model_file'] + '_x.npy')
+	Y_train = np.load(config['model_file'] + '_y.npy')
 	print('Training data shape:')
 	print(X_train.shape)
 	if(config['stateful']):
@@ -41,7 +41,7 @@ def loadData():
 
 def loadmodel():
 	if not os.path.isfile('%s_model.h5' % (model_filename)):
-		model = network_utils.create_blstm_rnn(
+		model = network_utils.create_lstm_rnn(
 		input_shape = input_shape,
 		num_hidden_dimensions = config['hidden_dimension_size'],
 		max_hidden_dimension_size = config['max_hidden_dimension_size'],
@@ -49,7 +49,7 @@ def loadmodel():
 		stateful = config['stateful'])
 	else:
 		model = load_model('%s_model.h5' % (model_filename))
-	return model;
+	return model
 
 """
 http://machinelearningmastery.com/using-learning-rate-schedules-deep-learning-models-python-keras/	"""
@@ -57,36 +57,31 @@ def step_decay(epoch):
 	train_progress = epochs_per_iter / float(cur_iter + epochs_per_iter)
 	epochs_drop = 50.0 / train_progress
 	drop = 0.5
-	initial_lrate = .5 * train_progress
+	initial_lrate = .01 * train_progress
 	drop *= train_progress
 	lrate = initial_lrate * math.pow(drop, math.floor((1+epoch)/epochs_drop))
 	print('Learning rate: %s' % lrate)
 	return lrate
 
 def time_decay(epoch):
-	initial_lrate = .5
+	initial_lrate = .01
 	lrate = initial_lrate * 1 / (1 + epoch)
 	print('Learning rate: %s' % lrate)
 	return lrate
 
 def run_training():
-	#We set cross-validation to 0,
-	#as cross-validation will be on different datasets 
-	#if we reload our model between runs
-	#The moral way to handle this is to manually split 
-	#your data into two sets and run cross-validation after 
-	#you've trained the model for some number of epochs
-	#train_len=int(float(X_train.length)/batch_size))*batch_size;
-	# learning schedule callback
+	global cur_iter
+	
 	if not os.path.isdir(model_weight_dir):
 		os.makedirs(model_weight_dir)
 	plot_path = '%s_network_plot.png' % (model_filename)
 	plot(model, show_shapes=True, to_file=plot_path)
 	model.save('%s_model.h5' % (model_filename))
+
 	lrate = LearningRateScheduler(time_decay)
 	checkpointer = ModelCheckpoint(filepath=model_filename, verbose=1)
 	callbacks_list = [lrate, checkpointer]
-	global cur_iter
+	
 	print ('Starting training!')
 	while cur_iter < xrange(num_iters):
 		print('Iteration: ' + str(cur_iter))
@@ -122,9 +117,9 @@ if __name__ == '__main__':
 	print ('Current iteration: ', cur_iter)
 	
 	#Load existing weights if available
-	if os.path.isfile(model_filename):
-		model.load_weights(model_filename)
-		print ('Loaded model weights from %s' % (model_filename))
+	if os.path.isfile(model_filename + str(cur_iter)):
+		model.load_weights(model_filename + str(cur_iter))
+		print ('Loaded model weights from %s' % (model_filename + str(cur_iter)))
 	else:
 		cur_iter = 0
 	

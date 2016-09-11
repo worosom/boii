@@ -111,7 +111,7 @@ class Audio:
 		buf = []
 		while len(buf) < self.config['buffersize']:
 			buf.extend(self.__read_queue.get())
-		self.__input_level = np.mean(np.abs(buf))
+		self.__input_level = float(np.mean(np.abs(buf)))
 		if not self.config['time_domain']:
 			buf = time_block_to_fft_block(block=buf)
 			#buf = time_block_to_wavelet_block(buf)

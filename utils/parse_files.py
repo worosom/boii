@@ -7,6 +7,17 @@ from pipes import quote
 from utils.config import nn_config
 from utils.audio import *
 
+def load_training_data(config_number):
+	config = nn_config.get_neural_net_configuration(config_number)
+	inputFile = config['dataset_file']
+	print ('Loading mean and variance data...')
+	X_mean = np.load(inputFile + '_mean.npy')
+	X_var = np.load(inputFile + '_var.npy')
+	X_train = np.load(inputFile + '_x.npy')
+	Y_train = np.load(inputFile + '_y.npy')
+	print ('Done.')
+	return X_train, Y_train, X_mean, X_var
+
 def convert_mp3_to_wav(filename, sample_frequency):
 	ext = filename[-4:]
 	if(ext != '.mp3'):
@@ -69,13 +80,12 @@ def convert_folder_to_wav(directory, sample_rate):
 
 def read_wav_as_np(filename):
 	data = wav.read(filename)
-	np_arr = data[1].astype('float32') / 32767.0 #Normalize 16-bit input to [-1, 1] range
-	#np_arr = np.array(np_arr)
+	np_arr = data[1].astype(float) / config['maxvalue'] #Normalize 16-bit input to [-1, 1] range
 	return np_arr, data[0]
 
 def write_np_as_wav(X, sample_rate, filename):
-	Xnew = X * 32767.0
-	Xnew = Xnew.astype('int16')
+	Xnew = X * config['maxvalue']
+	Xnew = Xnew.astype(config['datatype'])
 	wav.write(filename, sample_rate, Xnew)
 	return
 
@@ -106,10 +116,6 @@ def convert_wav_files_to_nptensor(directory, block_size, max_seq_len, out_file, 
 			cur_seq += max_seq_len
 		print('Saved example ', (file_idx+1), ' / ',num_files)
 	num_examples = len(chunks_X)
-	num_dims_out = 518
-	if(time_domain):
-		num_dims_out = block_size
-	out_shape = (num_examples, max_seq_len, num_dims_out)
 	
 	print('Flushing to disk... Out')
 	mean_x = np.mean(np.mean(chunks_X, axis=0), axis=0) #Mean across num examples and num timesteps
@@ -123,9 +129,9 @@ def convert_wav_files_to_nptensor(directory, block_size, max_seq_len, out_file, 
 	np.save(out_file+'_mean', mean_x)
 	np.save(out_file+'_var', std_x)
 	print('Writing NP_x... ')
-	np.save(out_file+'_x', np.float32(chunks_X))
+	np.save(out_file+'_x', np.float16(chunks_X))
 	print('Writing NP_y... ')
-	np.save(out_file+'_y', np.float32(chunks_Y))
+	np.save(out_file+'_y', np.float16(chunks_Y))
 	print('Done!')
 
 def convert_nptensor_to_wav_files(tensor, indices, filename, time_domain=False):
@@ -154,6 +160,8 @@ def load_training_example(filename, block_size, time_domain=False):
 		return x_t, y_t
 	X = time_blocks_to_fft_blocks(x_t)
 	Y = time_blocks_to_fft_blocks(y_t)
+	X = quantize(m_law(X, m=config['m_law_coefficient']))
+	X = quantize(m_law(Y, m=config['m_law_coefficient']))
 	return X, Y
 
 def load_fft_blocks_from_wav(filename, block_size):

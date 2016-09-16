@@ -1,7 +1,7 @@
 import audio_config
 
 def load_paramenters():
-	nn_params = [{},{},{}]
+	nn_params = [{},{},{},{}]
 	
 
 	"""+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -14,11 +14,11 @@ def load_paramenters():
 	"""
 	Number of hidden dimensions.
 	For best results, this should be >= freq_space_dims, but most consumer GPUs can't handle large sizes	"""
-	nn_params[0]['hidden_dimension_size'] = 511
-	nn_params[0]['max_hidden_dimension_size'] = 511
+	nn_params[0]['hidden_dimension_size'] = 250
+	nn_params[0]['max_hidden_dimension_size'] = 250
 	"""
 	Number of recurrent units.	"""
-	nn_params[0]['recurrent_units'] = 2
+	nn_params[0]['recurrent_units'] = 13
 	
 	"""
 	Training batch size.
@@ -37,14 +37,14 @@ def load_paramenters():
 	
 	"""
 	The weights filename for saving/loading the weights of trained models	"""
-	nn_params[0]['model_name'] = get_model_name(
+	nn_params[0]['modelweight_dir'] = get_modelweight_dir(
 		nn_params[0]['hidden_dimension_size'],
 		nn_params[0]['recurrent_units'],
 		nn_params[0]['dataset_name'])
 	
 	"""
 	The model filename for the training data	"""
-	nn_params[0]['model_file'] = get_data_dir(nn_params[0]['dataset_name'])
+	nn_params[0]['dataset_file'] = get_data_dir(nn_params[0]['dataset_name'])
 	
 	"""
 	The dataset directory	"""
@@ -58,19 +58,19 @@ def load_paramenters():
 		recurrent_units = 2
 	"""
 	nn_params[1] = nn_params[0].copy()
-	nn_params[1]['batch_size'] = 583
+	nn_params[1]['batch_size'] = 143
 	#nn_params[1]['batch_size'] = 53
-	nn_params[1]['recurrent_units'] = 2
-	nn_params[1]['hidden_dimension_size'] = 1022
-	nn_params[1]['max_hidden_dimension_size'] = 1022
-	nn_params[1]['model_name'] = get_model_name(
+	nn_params[1]['recurrent_units'] = 7
+	nn_params[1]['hidden_dimension_size'] = 511
+	nn_params[1]['max_hidden_dimension_size'] = 511
+	nn_params[1]['modelweight_dir'] = get_modelweight_dir(
 		nn_params[1]['hidden_dimension_size'],
 		nn_params[1]['recurrent_units'],
 		nn_params[1]['dataset_name'])
 	
 	"""
 	The model filename for the training data	"""
-	nn_params[1]['model_file'] = get_data_dir(nn_params[1]['dataset_name'])
+	nn_params[1]['dataset_file'] = get_data_dir(nn_params[1]['dataset_name'])
 	
 
 	"""+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -80,18 +80,37 @@ def load_paramenters():
 		recurrent_units = 3
 	"""
 	nn_params[2] = nn_params[0].copy()
-	nn_params[2]['batch_size'] = 53
-	nn_params[2]['recurrent_units'] = 8
+	nn_params[2]['batch_size'] = 143
+	nn_params[2]['recurrent_units'] = 9
 	nn_params[2]['hidden_dimension_size'] = 511
-	nn_params[2]['max_hidden_dimension_size'] = 1022
-	nn_params[2]['model_name'] = get_model_name(
+	nn_params[2]['max_hidden_dimension_size'] = 511
+	nn_params[2]['modelweight_dir'] = get_modelweight_dir(
 		nn_params[2]['hidden_dimension_size'],
 		nn_params[2]['recurrent_units'],
 		nn_params[2]['dataset_name'])
 	
 	"""
 	The model filename for the training data	"""
-	nn_params[2]['model_file'] = get_data_dir(nn_params[2]['dataset_name'])
+	nn_params[2]['dataset_file'] = get_data_dir(nn_params[2]['dataset_name'])
+
+	"""+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			
+			NETWORK 3
+			Wavenet
+		see:
+		WaveNet: A Generative Model for Raw Audio, van den Oord et. al. 2016
+	"""
+	nn_params[3]['dataset_name'] = 'Chopin'
+	nn_params[3]['samplerate'] = audio_config.get_samplerate()
+	nn_params[3]['batch_size'] = 583
+	nn_params[3]['hidden_dimension_size'] = 64
+	nn_params[3]['modelweight_dir'] = get_modelweight_dir(
+		nn_params[3]['hidden_dimension_size'],'wavenet',
+		nn_params[3]['dataset_name'])
+
+	"""
+	The model filename for the training data	"""
+	nn_params[3]['dataset_file'] = get_data_dir(nn_params[2]['dataset_name'])
 
 	return nn_params
 
@@ -102,6 +121,6 @@ def get_neural_net_configuration(network_number):
 def get_data_dir(dataset_name):
 	return './datasets/%s/%sNP' % (dataset_name, dataset_name)
 
-def get_model_name(hidden_dimension_size, recurrent_units, dataset_name):
+def get_modelweight_dir(hidden_dimension_size, recurrent_units, dataset_name):
 	base_folder_name = '%s_%s_%s' % (hidden_dimension_size, recurrent_units, dataset_name)
-	return '%s' % (base_folder_name)
+	return './model_weights/%s' % (base_folder_name)

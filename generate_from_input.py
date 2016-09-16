@@ -13,7 +13,7 @@ import utils.config.nn_config as nn_config
 import time as now
 import utils.audio as au
 import utils.midi as mid
-from keras.callbacks import LearningRateScheduler
+from keras.models import load_model
 
 class Generate:
 
@@ -49,19 +49,22 @@ class Generate:
 			config['recurrent_units'],
 			config['dataset_name'])
 
-		"""
-			Run the method to compile the model	"""
-		if config_number < 3:
-			model = network_utils.create_lstm_rnn(
-			num_hidden_dimensions = config['hidden_dimension_size'],
-			max_hidden_dimension_size = config['max_hidden_dimension_size'],
-			num_recurrent_units = config['recurrent_units'],
-			input_shape = self.input_shape,
-			stateful = config['stateful'],
-			lrate = .0)
+		if not os.path.isfile('%s_model.h5' % (model_filename)):
+			"""
+				Run the method to compile the model	"""
+			if config_number < 3:
+				model = network_utils.create_lstm_rnn(
+				num_hidden_dimensions = config['hidden_dimension_size'],
+				max_hidden_dimension_size = config['max_hidden_dimension_size'],
+				num_recurrent_units = config['recurrent_units'],
+				input_shape = self.input_shape,
+				stateful = config['stateful'],
+				lrate = .0)
+			else:
+				model = network_utils.create_wave_net(
+					self.input_shape, 10)
 		else:
-			model = network_utils.create_wave_net(
-				self.input_shape, 10)
+			model = load_model('%s_model.h5' % (model_filename))
 		"""
 			Load the weights generated during training	"""
 		print('Loading model weights from \n %s' % model_filename)
@@ -73,8 +76,6 @@ class Generate:
 
 	def generate(self, run=True):
 		self.run = run
-		lrate = LearningRateScheduler(self.input_volume)
-		callbacks_list = [lrate,]
 		print ('Starting generation!')
 		fb = np.zeros(self.input_shape)
 		self.models[0].predict(fb)
@@ -84,21 +85,12 @@ class Generate:
 			cc1 = self.midi.read_cc(mid.a49_cc['cc1'])
 			cc2 = self.midi.read_cc(mid.a49_cc['cc2'])
 			data = self.audio.read()
-			#print(self.midi.read_cc(mid.a49_cc['cc1']))
-			#data -= self.X_mean
-			#data /= self.X_var
 			seed = np.reshape(data, self.input_shape)
 			seed = (fb + seed)
-			weights1 = self.model_weights[0]
-			#self.models[0].set_weights(weights1)
 			out1 = self.models[0].predict(seed)
 			out2 = self.models[1].predict(seed) * (1.-cc2) + self.models[2].predict(seed) * cc2
 			out = out2 * cc1 + out1 * (1.-cc1)
-			#fb = out 
-			#output = seed
 			output = np.reshape(out, (self.freq_dims,))
-			#output *= self.X_var
-			#output += self.X_mean
 			self.audio.write(output)
 		return
 

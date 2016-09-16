@@ -34,7 +34,7 @@ _______Audio__I/O__Configuration________
 		maxvalue
 	The maximum value determined by the datatype.
 
-		timedomain
+		time_domain
 	if set to False, 'read()' will return the signal in freq domain,
 	'write(np_audio)' will expect the signal to be in freq domain as well.
 
@@ -67,26 +67,40 @@ _______I/O______________________________
 ________________________________________
 """
 
-def get_audio_config():
-	audio_conf = {
-		'channel_count': 1,
-		'sampleformat': alsa.PCM_FORMAT_S16_LE,
-		'samplerate': 8000,
-		'datatype': np.int16,
-		'time_domain': False,
-		'pre_post' : 8,
-		'buffersize' : 512,
-		'in': {
-			'device': 'pulse',
-			'mode' : alsa.PCM_NORMAL,
-			'buffersize': 64},
-		'out': {
-			'device': 'pulse',
-			'mode' : alsa.PCM_NONBLOCK,
-			'buffersize': 256}}
-	audio_conf['maxvalue'] =  np.iinfo(audio_conf['datatype']).max
-	return audio_conf
+audio_conf = {
+	'channel_count': 1,
+	'sampleformat': alsa.PCM_FORMAT_S16_LE,
+	'samplerate': 8000,
+	'datatype': np.int16,
+	'time_domain': True,
+	'pre_post' : 8,
+	'buffersize' : 512,
+	'quantize' : True,
+	'm_law_coefficient' : 4,
+	'in': {
+		'device': 'pulse',
+		'mode' : alsa.PCM_NORMAL,
+		'buffersize': 64},
+	'out': {
+		'device': 'pulse',
+		'mode' : alsa.PCM_NONBLOCK,
+		'buffersize': 256}}
+audio_conf['maxvalue'] =  float(np.iinfo(audio_conf['datatype']).max)
+
 
 def get_samplerate():
-	audio_conf = get_audio_config()
 	return audio_conf['samplerate']
+
+def get_datatype():
+	return audio_conf['datatype']
+
+def get_maxvalue():
+	return audio_conf['maxvalue']
+
+def get_m_law_coefficient():
+	return audio_conf['get_m_law_coefficient']
+
+
+
+
+

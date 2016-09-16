@@ -2,6 +2,7 @@ import sys
 import numpy as np
 import utils.config.nn_config as nn_config
 import nn_utils.network_utils as nn_utils
+from keras.utils.visualize_util import plot
 
 
 global cur_iter
@@ -30,7 +31,7 @@ def load_data():
 
 def load_model():
 	freq_dims = X_train.shape[2]
-	batch_input_shape = (X_train.shape[1], freq_dims)
+	batch_input_shape = (batch_size, X_train.shape[1], freq_dims)
 	model = nn_utils.create_variational_autoenc(
 		batch_input_shape = batch_input_shape,
 		latent_dim = 2,
@@ -42,7 +43,10 @@ if __name__ == '__main__':
 	#X_train = X_train.reshape((X_train.shape[0]*X_train.shape[1],X_train.shape[2]))
 	#Y_train = Y_train.reshape((Y_train.shape[0]*Y_train.shape[1],Y_train.shape[2]))
 	model = load_model()
-	for i in xrange(X_train.shape[0]):
-		print(X_train[i].shape)
-		print(Y_train[i].shape)
-		model.fit(X_train[i], Y_train[i], batch_size=78, nb_epoch=10)
+	nn_utils.plot(model, './autoenc_plot.png')
+	max_iters=500
+	while cur_iter < max_iters:
+		for i in xrange(X_train.shape[0]):
+			model.fit(X_train[i], Y_train[i], batch_size=batch_size, nb_epoch=1, verbose=1)
+		cur_iter += 1
+		model.save_weights('./model_weights/autoenc_weights' + str(cur_iter))

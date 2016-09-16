@@ -1,7 +1,8 @@
 """
 	audio.py
 
-	A class that implements realtime buffered audio I/O.
+	A class that implements realtime buffered audio I/O
+	using pyalsaaudio.
 
 	Alexander Morosow, 2016
 	
@@ -12,9 +13,10 @@ debug = False
 import pprint
 import numpy as np
 import scipy
+import struct
 import alsaaudio as alsa
 from multiprocessing import Process, Queue
-from config.audio_config import get_audio_config
+from config.audio_config import audio_conf as config
 import pywt
 
 class Audio:
@@ -22,10 +24,11 @@ class Audio:
 	"""
 	Initialize the audio buffer.
 	"""
-	def __init__(self):
-		self.config = get_audio_config()
+	def __init__(self, time_domain=False):
+		config['time_domain'] = time_domain
+		config['quantize'] = False
 		print('Audio configuration:')
-		pprint.PrettyPrinter(indent=4).pprint(self.config)
+		pprint.PrettyPrinter(indent=4).pprint(config)
 		print('__')
 		self.__read_queue = Queue()
 		self.__write_queue = Queue()
@@ -37,12 +40,12 @@ class Audio:
 	def __configure_input(self):
 		inp = alsa.PCM(
 			alsa.PCM_CAPTURE,
-			self.config['in']['mode'],
-			device=self.config['in']['device'])
-		inp.setchannels(self.config['channel_count'])
-		inp.setrate(self.config['samplerate'])
-		inp.setformat(self.config['sampleformat'])
-		inp.setperiodsize(self.config['in']['buffersize'])
+			config['in']['mode'],
+			device=config['in']['device'])
+		inp.setchannels(config['channel_count'])
+		inp.setrate(config['samplerate'])
+		inp.setformat(config['sampleformat'])
+		inp.setperiodsize(config['in']['buffersize'])
 		return inp
 
 	"""
@@ -51,12 +54,12 @@ class Audio:
 	def __configure_output(self):
 		outp = alsa.PCM(
 			alsa.PCM_PLAYBACK,
-			self.config['out']['mode'],
-			device=self.config['out']['device'])
-		outp.setchannels(self.config['channel_count'])
-		outp.setrate(self.config['samplerate'])
-		outp.setformat(self.config['sampleformat'])
-		outp.setperiodsize(self.config['out']['buffersize'])
+			config['out']['mode'],
+			device=config['out']['device'])
+		outp.setchannels(config['channel_count'])
+		outp.setrate(config['samplerate'])
+		outp.setformat(config['sampleformat'])
+		outp.setperiodsize(config['out']['buffersize'])
 		return outp
 
 	"""
@@ -67,10 +70,12 @@ class Audio:
 		inp = self.__configure_input()
 		print('\nAudio input device initialized.\nStarting read Thread.')
 		while True:
-			_, data = inp.read()
-			data = np.fromstring(data, dtype=self.config['datatype'])
+			len, data = inp.read()
+			data = np.fromstring(data, dtype=config['datatype'])
 			buf = data.astype(float)
-			buf /= self.config['maxvalue']
+			buf /= config['maxvalue']
+			if config['quantize']:
+				buf = quantize(m_law(buf, m=config['m_law_coefficient']))
 			self.__read_queue.put(buf)
 
 	"""
@@ -82,37 +87,47 @@ class Audio:
 		print('\nAudio output device initialized.\nStarting write Thread.')
 		while True:
 			np_audio = np.asarray(self.__write_queue.get(),dtype=float)
-			np_audio *= self.config['maxvalue']
-			data = np_audio.astype(self.config['datatype'])
+			np_audio *= config['maxvalue']
+			data = np_audio.astype(config['datatype'])
 			outp.write(data)
 
 	"""
 	Pre-post data into the output buffer to avoid buffer underrun.
 	"""
 	def __pre_post_data(self):
-		zeros = np.zeros(self.config['out']['buffersize'], dtype = self.config['datatype'])
-		for i in range(0, self.config['pre_post']):
-		    self.__write_queue.put(zeros)
+		zeros = np.zeros(config['out']['buffersize'], dtype = config['datatype'])
+		for i in range(0, config['pre_post']):
+			self.__write_queue.put(zeros)
 
 	"""
 	Runs the read and write processes.
 	"""
 	def run(self):
 		self.__pre_post_data()
-		read_process = Process(target = self.__read)
-		write_process = Process(target = self.__write)
-		read_process.start()
-		write_process.start()
+		self.__read_process = Process(target = self.__read)
+		self.__write_process = Process(target = self.__write)
+		self.__read_process.start()
+		self.__write_process.start()
+		return
+
+	def stop(self):
+		print('Stopping read process...')
+		self.__read_process.terminate()
+		print('Stopping write process...')
+		self.__write_process.terminate()
+		return
 
 	"""
 	Reads audio samples from the queue captured from the reading thread.
 	"""
 	def read(self):
 		buf = []
-		while len(buf) < self.config['buffersize']:
+		while len(buf) < config['buffersize']:
 			buf.extend(self.__read_queue.get())
 		self.__input_level = float(np.mean(np.abs(buf)))
-		if not self.config['time_domain']:
+		#print(np.mean(np.abs(buf) - config['maxvalue']))
+		#print(config['maxvalue'])
+		if not config['time_domain']:
 			buf = time_block_to_fft_block(block=buf)
 			#buf = time_block_to_wavelet_block(buf)
 		return buf
@@ -121,7 +136,7 @@ class Audio:
 	Writes audio samples to the queue to be played by the writing thread.
 	"""
 	def write(self, np_audio):
-		if not self.config['time_domain']:
+		if not config['time_domain']:
 			data = fft_block_to_time_block(block=np_audio.copy())
 			#data = wavelet_block_to_time_block(np_audio)
 		else:
@@ -136,8 +151,16 @@ class Audio:
 	def loopback(self):
 		while True:
 			data = self.read()
-			print(data)
+			#print(np.mean(np.abs(data)))
+			print(np.max(data))
 			self.write(data)
+
+# ITU-T. Recommendation G. 711. Pulse Code Modulation (PCM) of voice frequencies, 1988.
+def m_law(x, m=64):
+	return np.sign(x)*(np.log(1+m*np.abs(x))/np.log(1+m))
+
+def quantize(x,steps=256):
+	return np.floor(steps*x)/steps
 
 """
 Returns an numpy array of signed random samples centered around 0

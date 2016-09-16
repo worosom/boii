@@ -15,21 +15,23 @@ global cur_iter
 config = nn_config.get_neural_net_configuration(int(sys.argv[1]))
 freq = config['samplerate']
 batch_size = config['batch_size']	#Number of training examples pushed to the GPU per batch.
-inputFile = config['model_file']
-cur_iter = int(sys.argv[2])
-model_name = config['model_name']
-model_weight_dir = './model_weights/%s' % (model_name)
-model_filename = '%s/%s' % (model_weight_dir, model_name)
-
+inputFile = config['dataset_file']
+cur_iter = sys.argv[2]
+modelweight_dir = config['modelweight_dir']
+model_filename = '%s/%s_%s_%s' % (
+	modelweight_dir,
+	config['hidden_dimension_size'],
+	config['recurrent_units'],
+	config['dataset_name'])
 
 num_iters = 10000					#Number of iterations for training
-epochs_per_iter = 250				#Number of iterations before we save our model
+epochs_per_iter = 10				#Number of iterations before we save our model
 
 def loadData():
 	#X_train is a tensor of size (num_train_examples, num_timesteps, num_frequency_dims)
 	#Y_train is a tensor of size (num_train_examples, num_timesteps, num_frequency_dims)
-	X_train = np.load(config['model_file'] + '_x.npy')
-	Y_train = np.load(config['model_file'] + '_y.npy')
+	X_train = np.load(config['dataset_file'] + '_x.npy')
+	Y_train = np.load(config['dataset_file'] + '_y.npy')
 	print('Training data shape:')
 	print(X_train.shape)
 	if(config['stateful']):
@@ -46,7 +48,8 @@ def loadmodel():
 		num_hidden_dimensions = config['hidden_dimension_size'],
 		max_hidden_dimension_size = config['max_hidden_dimension_size'],
 		num_recurrent_units = config['recurrent_units'],
-		stateful = config['stateful'])
+		stateful = config['stateful'],
+		lrate=.001)
 	else:
 		model = load_model('%s_model.h5' % (model_filename))
 	return model
@@ -54,7 +57,7 @@ def loadmodel():
 """
 http://machinelearningmastery.com/using-learning-rate-schedules-deep-learning-models-python-keras/	"""
 def step_decay(epoch):
-	train_progress = epochs_per_iter / float(cur_iter + epochs_per_iter)
+	train_progress = epochs_per_iter / float(cur_iter) + epochs_per_iter
 	epochs_drop = 50.0 / train_progress
 	drop = 0.5
 	initial_lrate = .01 * train_progress
@@ -64,7 +67,7 @@ def step_decay(epoch):
 	return lrate
 
 def time_decay(epoch):
-	initial_lrate = .01
+	initial_lrate = .1
 	lrate = initial_lrate * 1 / (1 + epoch)
 	print('Learning rate: %s' % lrate)
 	return lrate
@@ -72,15 +75,15 @@ def time_decay(epoch):
 def run_training():
 	global cur_iter
 	
-	if not os.path.isdir(model_weight_dir):
-		os.makedirs(model_weight_dir)
+	if not os.path.isdir(modelweight_dir):
+		os.makedirs(modelweight_dir)
 	plot_path = '%s_network_plot.png' % (model_filename)
 	plot(model, show_shapes=True, to_file=plot_path)
 	model.save('%s_model.h5' % (model_filename))
 
 	lrate = LearningRateScheduler(time_decay)
 	checkpointer = ModelCheckpoint(filepath=model_filename, verbose=1)
-	callbacks_list = [lrate, checkpointer]
+	callbacks_list = [checkpointer]
 	
 	print ('Starting training!')
 	while cur_iter < xrange(num_iters):

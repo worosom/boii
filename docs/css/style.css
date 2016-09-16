@@ -1,0 +1,441 @@
+/*
+Theme Name: Gate56
+Theme URI: http://gate56.de/
+Author: Alexander Morosow
+Author URI: alexander.morosow@gmail.com
+Description: Gate56 is a theme created for Gate56 GmbH
+License:
+License URI:
+Tags:
+Text Domain: gatefiftysix
+
+
+*/
+
+/*
+    Menu
+*/
+
+.menu {
+  display: block;
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  bottom: 1rem;
+}
+
+.menu ul {
+  padding: 0;
+}
+
+.menu li {
+  padding: 0;
+  display: block;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  overflow: hidden;
+  height: 2rem;
+  width: 2rem;
+  margin: 0 auto;
+}
+
+.menu img {
+  height: 100%;
+  cursor: pointer;
+}
+
+/*
+		Elements
+*/
+
+
+html, body {
+	height: 100%;
+	font-size: 125%;
+	padding: 0;
+	margin: 0;
+	background-color: #FFFFFF;
+
+}
+
+#header {
+  height: 100vh;
+}
+
+#logo_wrap {
+  position: relative;
+  height: 38.2vmin;
+  top: 19.1vh;
+  text-align: center;
+}
+
+#main_logo {
+  position: relative;
+  height: 100%;
+}
+
+#content {}
+
+.post {
+	position: relative;
+	min-height:
+	height: 100%;
+	margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+}
+
+.sidebar {
+	min-height: 10px;
+  margin: 0;
+	height: 100%;
+}
+
+.fillHeight {
+  min-height: 100vh;
+}
+
+.dark {
+	background-color: #000000;
+}
+
+.light {
+	background-color: #FFFFFF;
+}
+
+section.wide {
+  width: 150% !important;
+  margin-left: -25%;
+  padding-left: 25% !important;
+  padding-right: 25% !important;
+}
+
+.caption {
+  margin: 0 0 1.75rem;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+}
+
+ul li {
+  padding-right: 2rem;
+}
+
+.image {
+  height:50vh;
+  width: 100vw;
+  margin-left: -25%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.image.low {
+  height: 33.334vh;
+}
+
+.scroll {
+  background-attachment: fixed;
+}
+
+.fillHeight {
+}
+
+#icon_container {
+  
+}
+
+#icon_container img {
+  margin-top: 10vh;
+  width: 50%;
+}
+
+#icon_container h3{
+  font-size: 1rem;
+  margin: 5vh 0 0 0;
+  color: #003A68;
+}
+
+#icon_container .third.fourth {
+  margin: 0 calc(25%/6) 5vh;
+}
+
+#icon_container .icon {
+  text-align: center;
+  padding: 0 0rem;
+}
+
+/*
+		Typography
+*/
+
+.menu a {
+  color: #FFFFFF;
+  font-family: "Avenir", "Lato" , sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-weight: 660;
+	margin: 0rem 0 1rem 0;
+	text-rendering: optimizeLegibility;
+	letter-spacing: 0.03rem;
+  color: #000000;
+  margin-top: 10vh;
+}
+
+h1 {
+  font-family: "Avenir", "Lato" , sans-serif;
+  font-weight: 900;
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-family: "Avenir", "Lato" , sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Avenir", "Lato" , sans-serif;
+  font-weight: 700;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+
+}
+
+blockquote.reference {
+
+}
+
+.subhead {
+
+
+}
+
+.caption {
+	font-family: "Times", serif;
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+
+.dark .subhead {
+
+}
+
+.dark .caption {
+	color: #FFFFFF;
+}
+
+.light .caption {
+	color: #000000;
+}
+
+li {
+    font-family: "Times", serif;
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.5rem;
+}
+
+.dark li {
+  color: #FFFFFF;
+}
+
+/*
+		Footer
+*/
+
+#footer {
+
+}
+
+#footer .cta .caption {
+  padding-top: 1rem;
+	font-size: 1rem;
+	margin: 0;
+  font-weight: 400;
+}
+
+#footer .footer_wrap {
+	padding-top: 1.5rem;
+}
+
+
+
+/*
+		Contact Form
+*/
+
+#contactform {
+  font-size: 125%;
+  margin-bottom: 1.5rem;
+}
+
+#contactform *:focus {outline: none;}
+
+#contactform span {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+#contactform span input {
+  font-size: 1rem;
+  font-family: "Avenir Book", "Lato", sans-serif;
+  width: 100%;
+  height: 1.5rem;
+}
+
+#contactform span textarea {
+  font-size: 1rem;
+  font-family: "Avenir Book", "Lato", sans-serif;
+  min-height: 10rem;
+  width: 100%;
+  resize: vertical;
+}
+
+#contactform .submit {
+  padding-left: 66.6666%;
+  padding-right: 1rem;
+  margin-bottom: 0;
+}
+
+#contactform .submit input {
+  padding: 0;
+}
+
+.form_hint, .required_notification, span.error {
+  font-size: .75rem;
+  font-family: "Avenir Book", "Lato", sans-serif;
+  color: #0089C0;
+}
+
+/*
+		Impressum
+*/
+
+#impressum {
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+#impressum p{
+  font-size: .75rem;
+	position: relative;
+	top: -1ex;
+}
+
+#impressum b{
+  font-family: "Avenir", "Lato", sans-serif;
+  font-weight: normal;
+  font-weight: 400; 
+}
+
+#impressum span {
+  display: block;
+}
+
+#impressum #footer_logo {
+  height: 6rem;
+  margin-bottom: 1.75rem;
+}
+
+/*Small classes will only apply to viewports below 35.5em or 568px (with a 16px base)*/
+.center-small {text-align: center;}
+.hide-small {display: none;}
+@media (min-width: 35.5em) {
+  .hide-small {display: block;}
+  .center-small {text-align: inherit;}
+}
+
+/*Example of a "small to medium" breakpoint for a single-column layout (optional) */
+@media (max-width: 40.5em) {
+	.row.equal-units > .unit:first-of-type {padding-left: 0;}
+ 	.row.equal-units > .unit:last-child {padding-right: 0;}
+	
+
+}
+
+@media (min-width: 10em) and (max-width: 60.5em) {
+
+  .menu {padding: 0}
+
+  h1 {
+    white-space: normal;
+  }
+
+  #logo_wrap {
+  padding: 0 10vw 2rem 10vw;
+  }
+
+   /* All units can go full-width here */
+  .row .unit {
+    width: 100%;
+    min-height: 0;
+    left: 0;
+    /* Reset neg. margin for nested grids */
+    margin-left: inherit;
+  }
+  
+  .unit.wide {
+    width: 100% !important;
+    padding-left: 10vw !important;
+    padding-right: 10vw !important;
+  }
+
+  .unit.wide .image {
+    width: 162.5%;
+    margin-left: -50%;
+  }
+
+  .image {
+    background-position: 77%;
+  }
+
+  #icon_container .unit {
+    width: 50%; 
+    font-size: 100%;
+  }
+
+  #icon_container .third.fourth {
+    margin: 0;
+  }
+
+  #footer {
+    padding: 0 12.5%;
+  }
+
+  #impressum {margin-top: 10vh;text-align: center;}
+  #impressum span {display: inline; margin-left: 1rem;}
+	#impressum p {}
+  #impressum > span:first-child {margin-left: 0;}
+}
+
+

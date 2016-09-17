@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 464.265 151.73" enable-background="new 0 0 464.265 151.73" xml:space="preserve">
+	 viewBox="0 0 441.113 151.73" enable-background="new 0 0 441.113 151.73" xml:space="preserve">
 <font horiz-adv-x="1000">
 <!-- Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries. -->
 <font-face font-family="SourceCodePro-Semibold" units-per-em="1000" underline-position="-75" underline-thickness="50"/>
@@ -15,6 +15,7 @@
 <!-- Source is a trademark of Adobe Systems Incorporated in the United States and/or other countries. -->
 <font-face font-family="SourceCodePro-Regular" units-per-em="1000" underline-position="-75" underline-thickness="50"/>
 <missing-glyph horiz-adv-x="600" d="M62,660l476,0l0,-660l-476,0M255,340l-128,232l0,-462M472,110l0,462l-127,-232M427,58l-73,132l-52,103l-4,0l-54,-103l-74,-132M302,387l49,94l66,119l-235,0l66,-119l50,-94z"/>
+<glyph unicode=" " horiz-adv-x="600"/>
 <glyph unicode="a" horiz-adv-x="600" d="M81,126C81,153 88,177 101,198C114,218 134,235 163,250C191,265 227,277 272,286C317,295 370,303 433,308C432,325 430,340 425,355C420,370 413,383 403,394C393,405 380,413 364,420C347,427 327,430 304,430C272,430 241,424 212,412C183,399 157,386 134,372l-32,56C114,436 128,444 145,453C161,461 178,468 197,475C215,482 234,487 255,492C276,496 297,498 318,498C385,498 434,480 467,444C499,407 515,359 515,298l0,-298l-67,0l-7,66l-3,0C411,45 381,26 348,11C315,-4 281,-12 246,-12C223,-12 202,-9 182,-2C162,4 145,13 130,25C115,36 103,51 94,68C85,85 81,104 81,126M161,132C161,118 164,106 170,97C176,87 184,79 194,73C203,66 215,62 228,59C241,56 254,54 268,54C296,54 324,60 351,73C378,85 405,103 433,126l0,128C381,250 338,244 303,237C268,230 240,221 219,211C198,200 183,189 174,176C165,163 161,148 161,132z"/>
 <glyph unicode="b" horiz-adv-x="600" d="M93,712l82,0l0,-194l-2,-94C196,447 223,465 252,478C281,491 309,498 338,498C371,498 400,492 425,481C450,469 472,452 489,431C506,409 518,383 527,353C536,322 540,288 540,251C540,210 534,173 522,140C510,107 494,80 474,57C453,34 430,17 403,6C376,-6 349,-12 320,-12C297,-12 272,-6 245,6C218,17 192,33 169,54l-3,0l-7,-54l-66,0M175,114C198,93 222,79 246,70C269,61 290,57 307,57C328,57 348,62 366,71C384,80 400,92 413,109C426,125 437,145 444,169C451,193 455,220 455,250C455,277 452,301 447,323C442,345 434,364 423,380C412,395 397,407 380,416C363,425 342,429 318,429C297,429 274,423 250,412C225,400 200,381 175,356z"/>
 <glyph unicode="c" horiz-adv-x="600" d="M80,242C80,283 87,319 102,351C116,382 135,409 160,431C185,453 214,470 247,481C280,492 314,498 351,498C391,498 426,491 455,477C484,463 508,446 528,427l-41,-53C467,391 446,405 425,415C403,425 379,430 354,430C326,430 300,426 277,417C254,408 234,395 218,378C201,361 188,342 179,319C170,296 165,270 165,242C165,214 170,189 179,166C188,143 200,124 217,108C233,91 253,79 276,70C299,61 324,56 352,56C382,56 410,62 435,74C460,85 482,100 503,117l36,-53C512,40 483,21 450,8C417,-5 382,-12 346,-12C308,-12 273,-6 241,5C208,16 180,33 156,55C132,76 113,103 100,135C87,166 80,202 80,242z"/>
@@ -35,22 +36,22 @@
 	<g id="XMLID_45_">
 		<g id="XMLID_18_">
 			
-				<linearGradient id="XMLID_76_" gradientUnits="userSpaceOnUse" x1="-547.7702" y1="373.1829" x2="-547.7702" y2="473.4028" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 757.5114 163.8838)">
+				<linearGradient id="XMLID_89_" gradientUnits="userSpaceOnUse" x1="-547.7702" y1="373.1829" x2="-547.7702" y2="473.4028" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 757.5114 163.8838)">
 				<stop  offset="0" style="stop-color:#FFFFFF"/>
 				<stop  offset="0.5" style="stop-color:#000000"/>
 			</linearGradient>
-			<polygon id="XMLID_19_" fill="url(#XMLID_76_)" points="141.732,75.865 70.866,4.999 70.866,146.731 0,75.865 			"/>
+			<polygon id="XMLID_19_" fill="url(#XMLID_89_)" points="141.732,75.865 70.866,4.999 70.866,146.731 0,75.865 			"/>
 		</g>
 		
-			<linearGradient id="XMLID_77_" gradientUnits="userSpaceOnUse" x1="-497.6603" y1="423.2928" x2="-497.6603" y2="323.073" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 757.5114 163.8838)">
+			<linearGradient id="XMLID_90_" gradientUnits="userSpaceOnUse" x1="-497.6603" y1="423.2928" x2="-497.6603" y2="323.073" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 757.5114 163.8838)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="0.5" style="stop-color:#000000"/>
 		</linearGradient>
-		<polygon id="XMLID_17_" fill="url(#XMLID_77_)" points="212.598,75.865 141.732,4.999 141.732,146.731 70.866,75.865 		"/>
+		<polygon id="XMLID_17_" fill="url(#XMLID_90_)" points="212.598,75.865 141.732,4.999 141.732,146.731 70.866,75.865 		"/>
 	</g>
 	<rect id="XMLID_23_" x="218.07" y="4.999" fill="none" width="255.385" height="71.283"/>
 	<text id="XMLID_47_" transform="matrix(1 0 0 1 218.0697 75.5983)"><tspan x="0" y="0" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px" letter-spacing="3">b</tspan><tspan x="62.999" y="0" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px">o</tspan><tspan x="122.998" y="0" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px" letter-spacing="-3">i</tspan><tspan x="179.997" y="0" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px">i</tspan></text>
 	<rect id="XMLID_16_" x="225.086" y="86.236" fill="none" width="193.377" height="60.495"/>
-	<text id="XMLID_4_" transform="matrix(1 0 0 1 225.0863 95.135)"><tspan x="0" y="0" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">bidirectionally</tspan><tspan x="0" y="17.181" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">oriented</tspan><tspan x="0" y="34.36" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">intelligent</tspan><tspan x="0" y="51.54" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">interface</tspan></text>
+	<text id="XMLID_4_" transform="matrix(1 0 0 1 225.0863 95.135)"><tspan x="0" y="0" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">bidirectionally</tspan><tspan x="0" y="17.181" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">oriented</tspan><tspan x="0" y="34.36" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">intelligent</tspan><tspan x="0" y="51.54" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">interface agent</tspan></text>
 </g>
 </svg>

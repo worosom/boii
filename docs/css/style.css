@@ -54,34 +54,31 @@ Text Domain: gatefiftysix
 
 html, body {
 	height: 100%;
-	font-size: 125%;
+	font-size: 100%;
 	padding: 0;
 	margin: 0;
 	background-color: #FFFFFF;
-
 }
 
 #header {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #logo_wrap {
   position: relative;
-  height: 38.2vmin;
-  top: 19.1vh;
   text-align: center;
 }
 
 #main_logo {
   position: relative;
-  height: 100%;
+  width: 77.77%;
+  padding: 4rem 0 0em 0;
 }
 
 #content {}
 
 .post {
 	position: relative;
-	min-height:
 	height: 100%;
 	margin-bottom: auto;
   margin-left: auto;
@@ -119,12 +116,17 @@ section.wide {
   overflow: hidden;
 }
 
-ul {
+ul, ol {
   margin: 0;
 }
 
-ul li {
+ul li, ol li {
   padding-right: 2rem;
+  padding-bottom: .5rem;
+}
+
+ol {
+  list-style-type: upper-roman;
 }
 
 .image {
@@ -176,9 +178,13 @@ ul li {
 		Typography
 */
 
+body {
+  font-family: "Source Code Pro", monospace;
+}
+
 .menu a {
   color: #FFFFFF;
-  font-family: "Avenir", "Lato" , sans-serif;
+  font-family: "Source Sans Pro" , sans-serif;
 }
 
 h1,
@@ -187,23 +193,30 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Source Code Pro", monospace;
 	clear: both;
 	font-weight: 660;
-	margin: 0rem 0 1rem 0;
+	margin: 4rem 0 1rem 0;
 	text-rendering: optimizeLegibility;
 	letter-spacing: 0.03rem;
   color: #000000;
-  margin-top: 10vh;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #FFFFFF;
 }
 
 h1 {
-  font-family: "Avenir", "Lato" , sans-serif;
   font-weight: 900;
   font-size: 1.75rem;
 }
 
 h2 {
-  font-family: "Avenir", "Lato" , sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
 }
@@ -216,7 +229,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Avenir", "Lato" , sans-serif;
   font-weight: 700;
 }
 
@@ -228,7 +240,7 @@ i {
 }
 
 blockquote {
-
+  font-family: "Source Serif Pro", serif;
 }
 
 blockquote.reference {
@@ -241,7 +253,7 @@ blockquote.reference {
 }
 
 .caption {
-	font-family: "Times", serif;
+	font-family: "Source Sans Pro", sans-serif;
 	font-size: 1rem;
 	line-height: 1.5rem;
 }
@@ -259,7 +271,7 @@ blockquote.reference {
 }
 
 li {
-    font-family: "Times", serif;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 1rem;
     color: #000000;
     line-height: 1.5rem;
@@ -286,55 +298,6 @@ li {
 
 #footer .footer_wrap {
 	padding-top: 1.5rem;
-}
-
-
-
-/*
-		Contact Form
-*/
-
-#contactform {
-  font-size: 125%;
-  margin-bottom: 1.5rem;
-}
-
-#contactform *:focus {outline: none;}
-
-#contactform span {
-  padding-left: 1rem;
-  margin-bottom: 1rem;
-}
-
-#contactform span input {
-  font-size: 1rem;
-  font-family: "Avenir Book", "Lato", sans-serif;
-  width: 100%;
-  height: 1.5rem;
-}
-
-#contactform span textarea {
-  font-size: 1rem;
-  font-family: "Avenir Book", "Lato", sans-serif;
-  min-height: 10rem;
-  width: 100%;
-  resize: vertical;
-}
-
-#contactform .submit {
-  padding-left: 66.6666%;
-  padding-right: 1rem;
-  margin-bottom: 0;
-}
-
-#contactform .submit input {
-  padding: 0;
-}
-
-.form_hint, .required_notification, span.error {
-  font-size: .75rem;
-  font-family: "Avenir Book", "Lato", sans-serif;
-  color: #0089C0;
 }
 
 /*
@@ -393,6 +356,7 @@ li {
 
   #logo_wrap {
   padding: 0 10vw 2rem 10vw;
+
   }
 
    /* All units can go full-width here */

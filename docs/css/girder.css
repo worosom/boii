@@ -14,7 +14,7 @@
 .row {
   display: block;
   clear: both;
-  *zoom: 1;
+  zoom: 1;
 
   /* Lets add outer gutters to top level row 1.25em = 20px using 16px base */
   padding-left: 0em;
@@ -48,7 +48,7 @@ span.unit {
 }
 
 section > .unit:last-child {
-  margin-bottom: 10vh;
+  margin-bottom: 4rem;
 }
 
 section > .unit.sidebar:last-child {

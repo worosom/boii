@@ -42,10 +42,12 @@ span.unit {
 }
 
 /* remove nested outer gutters */
-.row > .unit:first-of-type {padding-left: 0;}
+.row > .unit:first-of-type {padding-bottom: 0}
 .row > .unit:last-child {
   padding-right: 0;
 }
+
+.unit.half p.caption{padding-right: 1.5rem;}
 
 section > .unit:last-child {
   margin-bottom: 4rem;

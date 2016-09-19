@@ -58,6 +58,8 @@ html, body {
 	padding: 0;
 	margin: 0;
 	background-color: #FFFFFF;
+  color: #000000;
+  hyphens:auto;
 }
 
 #header {
@@ -71,7 +73,7 @@ html, body {
 
 #main_logo {
   position: relative;
-  width: 77.77%;
+  width: 66.67%;
   padding: 4rem 0 0em 0;
 }
 
@@ -100,7 +102,15 @@ html, body {
 	background-color: #000000;
 }
 
+.dark *{
+  background-color: #000000;
+}
+
 .light {
+  background-color: #FFFFFF;
+}
+
+.light *{
 	background-color: #FFFFFF;
 }
 
@@ -130,13 +140,11 @@ ol {
 }
 
 .image {
-  height:50vh;
-  width: 100vw;
-  margin-left: -25%;
+  width: 66.67vw;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-size: cover;
+  background-size: 100%;
 }
 
 .image.low {
@@ -182,6 +190,20 @@ body {
   font-family: "Source Code Pro", monospace;
 }
 
+.hyphenate {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+.donthyphenate {
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+}
+
 .menu a {
   color: #FFFFFF;
   font-family: "Source Sans Pro" , sans-serif;
@@ -195,7 +217,7 @@ h5,
 h6 {
   font-family: "Source Code Pro", monospace;
 	clear: both;
-	font-weight: 660;
+	font-weight: 700;
 	margin: 4rem 0 1rem 0;
 	text-rendering: optimizeLegibility;
 	letter-spacing: 0.03rem;
@@ -243,6 +265,10 @@ blockquote {
   font-family: "Source Serif Pro", serif;
 }
 
+.dark blockquote {
+  color: #FFFFFF;
+}
+
 blockquote.reference {
 
 }
@@ -255,7 +281,31 @@ blockquote.reference {
 .caption {
 	font-family: "Source Sans Pro", sans-serif;
 	font-size: 1rem;
-	line-height: 1.5rem;
+	line-height: 2rem;
+  letter-spacing: .05rem;
+}
+
+.image_caption {
+  font-family: "Source Serif Pro", serif;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+}
+
+.dark .image_caption {
+  color: #FFFFFF;
+}
+
+.image_caption .prefix {
+  padding: 0 0 0 0;
+  display: block;
+}
+
+.image_caption .caption {
+  font-family: "Source Serif Pro", serif;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  position: relative;
+  left: 2rem;
 }
 
 .dark .subhead {

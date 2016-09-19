@@ -15,7 +15,9 @@ Text Domain: gatefiftysix
 /*
     Menu
 */
-
+section.unit.sixth {
+  background-color: #11A0DD;
+}
 .menu {
   display: block;
   width: 100%;
@@ -392,11 +394,10 @@ li {
 @media (max-width: 40.5em) {
 	.row.equal-units > .unit:first-of-type {padding-left: 0;}
  	.row.equal-units > .unit:last-child {padding-right: 0;}
-	
-
 }
 
 @media (min-width: 10em) and (max-width: 60.5em) {
+  .block .unit.half p.caption {padding-right: 0}
 
   .menu {padding: 0}
 
@@ -424,14 +425,7 @@ li {
     padding-right: 10vw !important;
   }
 
-  .unit.wide .image {
-    width: 162.5%;
-    margin-left: -50%;
-  }
 
-  .image {
-    background-position: 77%;
-  }
 
   #icon_container .unit {
     width: 50%; 

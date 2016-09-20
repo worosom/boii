@@ -16,7 +16,6 @@ Text Domain: gatefiftysix
     Menu
 */
 section.unit.sixth {
-  background-color: #11A0DD;
 }
 .menu {
   display: block;
@@ -123,8 +122,12 @@ section.wide {
   padding-right: 25% !important;
 }
 
+.image.wide {
+  width: 100%;
+}
+
 .caption {
-  margin: 0 0 1.75rem;
+  margin: 0 0 2rem;
   overflow: hidden;
 }
 
@@ -425,7 +428,9 @@ li {
     padding-right: 10vw !important;
   }
 
-
+  .image {
+    width: 100%;
+  }
 
   #icon_container .unit {
     width: 50%; 

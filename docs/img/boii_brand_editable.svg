@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="-258 205.27 441.113 151.73" enable-background="new -258 205.27 441.113 151.73" xml:space="preserve">
-<g id="XMLID_45_">
-	<g id="XMLID_18_">
+	 viewBox="-258 205.3 441.1 151.7" style="enable-background:new -258 205.3 441.1 151.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#XMLID_2_);}
+	.st1{fill:url(#XMLID_3_);}
+	.st2{fill:none;}
+	.st3{fill:#231F20;}
+	.st4{font-family:'SourceCodePro-Semibold';}
+	.st5{font-size:100px;}
+	.st6{letter-spacing:3;}
+	.st7{letter-spacing:-3;}
+	.st8{font-family:'SourceCodePro-Regular';}
+	.st9{font-size:12.5px;}
+</style>
+<g>
+	<g id="XMLID_45_">
+		<g id="XMLID_18_">
+			
+				<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="-890.5308" y1="-32.1803" x2="-890.5308" y2="68.0403" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 455.2386 898.151)">
+				<stop  offset="0" style="stop-color:#FFFFFF"/>
+				<stop  offset="0.5" style="stop-color:#000000"/>
+			</linearGradient>
+			<polygon id="XMLID_19_" class="st0" points="-116.3,281.1 -187.1,210.3 -187.1,352 -258,281.1 			"/>
+		</g>
 		
-			<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="-737.7962" y1="227.9745" x2="-737.7962" y2="127.7539" gradientTransform="matrix(0.7071 0.7071 0.7071 -0.7071 208.7939 928.5985)">
+			<linearGradient id="XMLID_3_" gradientUnits="userSpaceOnUse" x1="-840.4205" y1="17.93" x2="-840.4205" y2="-82.2906" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 455.2386 898.151)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="0.5" style="stop-color:#000000"/>
 		</linearGradient>
-		<polygon id="XMLID_19_" fill="url(#XMLID_2_)" points="-116.268,281.135 -187.134,210.269 -187.134,352.001 -258,281.135 		"/>
+		<polygon id="XMLID_17_" class="st1" points="-45.4,281.1 -116.3,210.3 -116.3,352 -187.1,281.1 		"/>
 	</g>
-	
-		<linearGradient id="XMLID_3_" gradientUnits="userSpaceOnUse" x1="-687.6859" y1="177.8642" x2="-687.6859" y2="278.0849" gradientTransform="matrix(0.7071 0.7071 0.7071 -0.7071 208.7939 928.5985)">
-		<stop  offset="0" style="stop-color:#FFFFFF"/>
-		<stop  offset="0.5" style="stop-color:#000000"/>
-	</linearGradient>
-	<polygon id="XMLID_17_" fill="url(#XMLID_3_)" points="-45.402,281.135 -116.268,210.269 -116.268,352.001 -187.134,281.135 	"/>
+	<rect id="XMLID_23_" x="-39.9" y="210.3" class="st2" width="255.4" height="71.3"/>
+	<text transform="matrix(1 0 0 1 -39.9303 280.8683)" class="st3 st4 st5 st6">b</text>
+	<text transform="matrix(1 0 0 1 23.0687 280.8683)" class="st3 st4 st5">o</text>
+	<text transform="matrix(1 0 0 1 83.0677 280.8683)" class="st3 st4 st5 st7">i</text>
+	<text transform="matrix(1 0 0 1 140.0667 280.8683)" class="st3 st4 st5">i</text>
+	<rect id="XMLID_16_" x="-32.9" y="291.5" class="st2" width="193.4" height="60.5"/>
+	<text transform="matrix(1 0 0 1 -32.9137 300.405)" class="st3 st8 st9">bidirectionally</text>
+	<text transform="matrix(1 0 0 1 -32.9137 317.586)" class="st3 st8 st9">oriented</text>
+	<text transform="matrix(1 0 0 1 -32.9137 334.765)" class="st3 st8 st9">intelligent</text>
+	<text transform="matrix(1 0 0 1 -32.9137 351.945)" class="st3 st8 st9">interface-agent</text>
 </g>
-<rect id="XMLID_23_" x="-39.93" y="210.269" fill="none" width="255.385" height="71.283"/>
-<text transform="matrix(1 0 0 1 -39.9303 280.8683)" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px" letter-spacing="3">b</text>
-<text transform="matrix(1 0 0 1 23.0687 280.8683)" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px">o</text>
-<text transform="matrix(1 0 0 1 83.0677 280.8683)" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px" letter-spacing="-3">i</text>
-<text transform="matrix(1 0 0 1 140.0667 280.8683)" fill="#231F20" font-family="'SourceCodePro-Semibold'" font-size="100px">i</text>
-<rect id="XMLID_16_" x="-32.914" y="291.506" fill="none" width="193.377" height="60.495"/>
-<text transform="matrix(1 0 0 1 -32.9137 300.405)" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">bidirectionally</text>
-<text transform="matrix(1 0 0 1 -32.9137 317.586)" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">oriented</text>
-<text transform="matrix(1 0 0 1 -32.9137 334.765)" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">intelligent</text>
-<text transform="matrix(1 0 0 1 -32.9137 351.945)" fill="#231F20" font-family="'SourceCodePro-Regular'" font-size="12.5px">interface agent</text>
 </svg>

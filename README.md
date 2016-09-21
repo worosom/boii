@@ -4,6 +4,7 @@ You have just a project for generating real time audio using artificial neural n
 * [ALSA disclaimer](#alsa-disclaimer)
 * [Dependencies](#dependencies)
 * [Getting the sources](#getting-the-sources)
+* [Contents](#contents)
 * [Usage](#usage)
 * [Addendum](#addendum)
 
@@ -44,6 +45,7 @@ Optional, if you want to train models using your GPU(s):
 
 For easy installation of the dependencies:
 * pip
+	
 	sudo apt-get install python python-pip python-dev build-essential 
 	sudo pip install --upgrade pip 
 
@@ -51,7 +53,9 @@ If you want to train models using your own datasets, GPU acceleration is highly 
 
 ### Theano
 To install the most recent version of Theano, simply issue this command in the Terminal:
+	
 	pip install git+git://github.com/Theano/Theano.git
+
 To install Theano with GPU support using CUDA, please refer to this guide:  
 [Install Theano - Theano 0.8.2 # Using the GPU](http://deeplearning.net/software/theano/install.html#using-the-gpu)
 
@@ -85,7 +89,22 @@ Run the `git clone` command to clone the repository into the diretory `./boii`:
 
 	git clone https://github.com/worosom/boii.git
 
+## Contents
+
+This repository has the following structure:
+
+	docs/
+	utils/
+
+	nn_utils/
+	model_weights/
+	datasets/
+
 ## Usage
+
+### Running pretrained models
+
+### Training models yourself
 
 ## Addendum
 Here is a curated List of resources dedicated to recurrent neural networks:

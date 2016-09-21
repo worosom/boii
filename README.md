@@ -12,7 +12,7 @@ To read about what that means, read this website: [worosom.github.io/boii](https
 
 The code in this repository contains everything you need for training and running 
 
-#### ALSA disclaimer
+## ALSA disclaimer
 If you are using a system such as Mac OS X or Windows, where ALSA is currently not supported, you will have to adapt 
 	utils/audio.py
 To support other audio drivers.
@@ -25,7 +25,7 @@ Go here to download Ubuntu Studio:
 
 All the following instructions imply that you have installed a working version of Ubuntu Studio or a Debian based Linux distribution with a _lowlatency_ kernel and [ALSA](http://www.alsa.org).
 
-### Dependencies
+## Dependencies
 These dependencies are essential for generating sound using the code in this repository:
 * Python 2.7
 * Theano

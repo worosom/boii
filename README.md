@@ -1,6 +1,13 @@
 # boii
+You have just a project for generating real time audio using artificial neural networks.
+* [Introduction](#introduction)
+* [ALSA disclaimer](#alsa-disclaimer)
+* [Dependencies](#dependencies)
+* [Getting the sources](#getting-the-sources)
+* [Usage](#usage)
+* [Addendum](#addendum)
 
-You have just found the source of the
+## Introduction
 
 	bidirectionally  
 	oriented  
@@ -42,13 +49,13 @@ For easy installation of the dependencies:
 
 If you want to train models using your own datasets, GPU acceleration is highly recommended.
 
-#### Theano
+### Theano
 To install the most recent version of Theano, simply issue this command in the Terminal:
 	pip install git+git://github.com/Theano/Theano.git
 To install Theano with GPU support using CUDA, please refer to this guide:  
 [Install Theano - Theano 0.8.2 # Using the GPU](http://deeplearning.net/software/theano/install.html#using-the-gpu)
 
-#### Keras
+### Keras
 Install the most recent version of Keras by issuing the following command in the Terminal:
 
 	pip install git+git://github.com/fchollet/keras.git
@@ -56,7 +63,7 @@ If you run into issues, consult the documentation:
 [keras.io # Installation](https://keras.io/#installation)  
 It is very well written.
 
-#### pyalsaaudio
+### pyalsaaudio
 Run this to install pyalsaaudio:
 
 	pip install pyalsaaudio
@@ -78,7 +85,9 @@ Run the `git clone` command to clone the repository into the diretory `./boii`:
 
 	git clone https://github.com/worosom/boii.git
 
-## Resources
+## Usage
+
+## Addendum
 Here is a curated List of resources dedicated to recurrent neural networks:
 https://github.com/kjw0612/awesome-rnn
 http://sebastianruder.com/optimizing-gradient-descent/

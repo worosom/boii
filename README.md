@@ -85,7 +85,7 @@ Make sure you have installed git:
 
 	sudo apt-get install git
 
-Run the `git clone` command to `clone the repository into the diretory `./boii`:
+Run the `git clone` command to `clone` the repository into `./boii`:
 
 	git clone https://github.com/worosom/boii.git
 

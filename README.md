@@ -36,9 +36,9 @@ All the following instructions imply that you have installed a working version o
 ## Dependencies
 These dependencies are essential for generating sound using the code in this repository:
 * Python 2.7
-* Theano
-* keras
-* pyalsaaudio
+* [Theano](#theano)
+* [Keras](#keras)
+* [pyalsaaudio](#pyalsaaudio)
 
 Optional, if you want to train models using your GPU(s):
 * CUDA
@@ -91,9 +91,9 @@ Run the `git clone` command to `clone the repository into the diretory `./boii`:
 
 ## Usage
 
-Examples:
-Assuming you have 
-	python generate.py 0 1 2
+* [Contents](#contents)
+* [Running pretrained models](#running-pretrained-models)
+* [Training models yourself](#training-models-yourself)
 
 ### Contents
 

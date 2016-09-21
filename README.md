@@ -85,7 +85,7 @@ Make sure you have installed git:
 
 	sudo apt-get install git
 
-Run the `git clone` command to clone the repository into the diretory `./boii`:
+Run the `git clone` command to `clone the repository into the diretory `./boii`:
 
 	git clone https://github.com/worosom/boii.git
 
@@ -94,11 +94,26 @@ Run the `git clone` command to clone the repository into the diretory `./boii`:
 This repository has the following structure:
 
 	docs/
+		contains [worosom.github.io/boii](https://worosom.github.io/boii)
 	utils/
-
+		config/
+			audio_config.py
+			nn_config.py
+		audio.py
+		midi.py
+		parse_files.py
+		seed_generator.py
+		sequence_generator.py
 	nn_utils/
+		network_utils.py
+		residual_blocks.py
 	model_weights/
+		_will be released soon_
 	datasets/
+		_put your own datasets here_
+	train.py
+	generate.py
+	
 
 ## Usage
 

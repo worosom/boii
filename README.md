@@ -93,27 +93,27 @@ Run the `git clone` command to `clone the repository into the diretory `./boii`:
 
 This repository has the following structure:
 
-	docs/
-		contains [worosom.github.io/boii](https://worosom.github.io/boii)
-	utils/
-		config/
-			audio_config.py
-			nn_config.py
-		audio.py
-		midi.py
-		parse_files.py
-		seed_generator.py
-		sequence_generator.py
-	nn_utils/
-		network_utils.py
-		residual_blocks.py
-	model_weights/
+* docs/
+	* contains [worosom.github.io/boii](https://worosom.github.io/boii)
+	* utils/
+		* config/
+			* audio_config.py
+			* nn_config.py
+		* audio.py
+		* midi.py
+		* parse_files.py
+		* seed_generator.py
+		* sequence_generator.py
+	* nn_utils/
+		* network_utils.py
+		* residual_blocks.py
+	* model_weights/
 		_will be released soon_
-	datasets/
+	* datasets/
 		_put your own datasets here_
-	train.py
-	generate.py
-	
+	* train.py
+	* generate.py
+
 
 ## Usage
 

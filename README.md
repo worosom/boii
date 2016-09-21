@@ -115,10 +115,12 @@ This repository has the following structure:
 		Provides MIDI access to some parameters of the audio generation process.
 	* `parse_files.py`  
 		Provides utility functions for converting wav files to tensors and back.
-		The original code stems from [GitHub MattVitelli/GRUV](https://github.com/MattVitelli/GRUV)
+		The original code stems from  
+		[GitHub MattVitelli/GRUV](https://github.com/MattVitelli/GRUV)
 	* `seed_generator.py`  
 		Utility functions for generating seeds to send to the model.
-		Most of the code in here comes from [GitHub MattVitelli/GRUV](https://github.com/MattVitelli/GRUV)
+		Most of the code in here comes from  
+		[GitHub MattVitelli/GRUV](https://github.com/MattVitelli/GRUV)
 	* `sequence_generator.py`
 * `nn_utils/`
 	* `network_utils.py`  

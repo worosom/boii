@@ -45,9 +45,8 @@ Optional, if you want to train models using your GPU(s):
 
 For easy installation of the dependencies:
 * pip
-	
-	sudo apt-get install python python-pip python-dev build-essential 
-	sudo pip install --upgrade pip 
+		sudo apt-get install python python-pip python-dev build-essential 
+		sudo pip install --upgrade pip 
 
 If you want to train models using your own datasets, GPU acceleration is highly recommended.
 

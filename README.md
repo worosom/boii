@@ -1,6 +1,13 @@
-# boii - »bidirectionally oriented, intelligent interface agent«
+# boii
 
-## You have just found the bidirectionally oriented, intelligent interface agent, in short boii.
+You have just found the source of the
+
+	bidirectionally  
+	oriented  
+	intelligent  
+	interface-agent
+
+in short boii.
 
 ## Getting started
 

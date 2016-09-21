@@ -94,3 +94,4 @@ ENV/
 # Exceptionally large files
 datasets/*
 model_weights/*
+docs/wav/*

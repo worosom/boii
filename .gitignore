@@ -93,9 +93,5 @@ ENV/
 
 # Exceptionally large files
 datasets/*
-# model_weights/*
-<<<<<<< Updated upstream
 model_weights/*
-=======
->>>>>>> Stashed changes
 docs/wav/*

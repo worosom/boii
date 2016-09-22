@@ -25,7 +25,7 @@ model_filename = '%s/%s_%s_%s' % (
 	config['dataset_name'])
 
 num_iters = 10000					#Number of iterations for training
-epochs_per_iter = 10				#Number of iterations before we save our model
+epochs_per_iter = 20				#Number of iterations before we save our model
 
 def loadData():
 	#X_train is a tensor of size (num_train_examples, num_timesteps, num_frequency_dims)

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 255.36 171.21" enable-background="new 0 0 255.36 171.21" xml:space="preserve">
+<g id="XMLID_80_">
+	
+		<line id="XMLID_127_" fill="none" stroke="#231F20" stroke-width="1.35" stroke-dasharray="10.622,10.622" x1="161.871" y1="36.558" x2="161.871" y2="20.625"/>
+	
+		<line id="XMLID_126_" fill="none" stroke="#231F20" stroke-width="1.35" stroke-dasharray="12.656,12.656" x1="142.887" y1="10.002" x2="22.657" y2="10.002"/>
+	
+		<line id="XMLID_125_" fill="none" stroke="#231F20" stroke-width="1.35" stroke-dasharray="12.6,12.6" x1="10.002" y1="28.903" x2="10.002" y2="148.607"/>
+	
+		<line id="XMLID_124_" fill="none" stroke="#231F20" stroke-width="1.35" stroke-dasharray="12.656,12.656" x1="28.985" y1="161.208" x2="149.215" y2="161.208"/>
+	<path id="XMLID_117_" fill="none" stroke="#231F20" stroke-width="1.35" d="M161.871,151.663v-3.182 M155.543,161.207h6.328v-3.181
+		 M10.001,154.907v6.3h6.328 M16.329,10.002h-6.328v6.3 M161.871,15.313v-5.311h-6.328 M161.871,52.491V47.18"/>
+	<line id="XMLID_116_" fill="none" stroke="#231F20" stroke-width="1.35" x1="107.485" y1="100.829" x2="80.005" y2="100.829"/>
+	<polyline id="XMLID_115_" fill="none" stroke="#231F20" stroke-width="1.35" points="84.386,96.755 80.005,100.829 84.386,104.902 
+			"/>
+	<line id="XMLID_114_" fill="none" stroke="#231F20" stroke-width="0.45" x1="190.99" y1="85.605" x2="162.849" y2="85.605"/>
+	<polyline id="XMLID_113_" fill="none" stroke="#231F20" stroke-width="0.45" points="166.262,82.431 162.849,85.605 
+		166.262,88.778 	"/>
+	<line id="XMLID_112_" fill="none" stroke="#231F20" stroke-width="0.45" x1="218.205" y1="136.669" x2="218.205" y2="93.851"/>
+	<line id="XMLID_111_" fill="none" stroke="#231F20" stroke-width="0.45" x1="48.645" y1="136.669" x2="48.645" y2="107.808"/>
+	<line id="XMLID_110_" fill="none" stroke="#231F20" stroke-width="0.45" x1="91.411" y1="70.381" x2="91.411" y2="34.541"/>
+	<line id="XMLID_109_" fill="none" stroke="#231F20" stroke-width="0.45" x1="107.485" y1="85.605" x2="79.344" y2="85.605"/>
+	<polyline id="XMLID_108_" fill="none" stroke="#231F20" stroke-width="0.45" points="82.757,82.431 79.344,85.605 82.757,88.778 	
+		"/>
+	<line id="XMLID_107_" fill="none" stroke="#231F20" stroke-width="1.35" x1="78.416" y1="70.381" x2="105.896" y2="70.381"/>
+	<polyline id="XMLID_106_" fill="none" stroke="#231F20" stroke-width="1.35" points="101.515,74.455 105.896,70.381 
+		101.515,66.308 	"/>
+	
+		<text id="XMLID_105_" transform="matrix(1 0 0 1 199.3793 88.6989)" fill="#DE3E67" font-family="'SourceSansPro-Semibold'" font-size="8.1px">Designer</text>
+	<rect id="XMLID_104_" x="191.051" y="78.035" fill="none" stroke="#E17A3F" stroke-width="1.35" width="54.308" height="15.14"/>
+	<rect id="XMLID_103_" x="23.939" y="64.078" fill="#FFFFFF" width="54.4" height="43.054"/>
+	
+		<text id="XMLID_102_" transform="matrix(1 0 0 1 32.2675 88.6989)" fill="#80A750" font-family="'SourceSansPro-Semibold'" font-size="8.1px">User</text>
+	<rect id="XMLID_101_" x="23.939" y="64.078" fill="none" stroke="#E17A3F" stroke-width="1.35" width="54.4" height="43.054"/>
+	
+		<text id="XMLID_100_" transform="matrix(1 0 0 1 16.6737 20.9035)" fill="#231F20" font-family="'SourceSansPro-Semibold'" font-size="8.1px">Context</text>
+	
+		<text id="XMLID_99_" transform="matrix(1 0 0 1 115.8905 88.7004)" fill="#344D5C" font-family="'SourceSansPro-Semibold'" font-size="8.1px">Message</text>
+	<rect id="XMLID_98_" x="107.563" y="78.035" fill="none" stroke="#DE3E67" stroke-width="1.35" width="54.308" height="15.14"/>
+	<rect id="XMLID_97_" x="107.563" y="64.078" fill="#FFFFFF" width="54.308" height="12.607"/>
+	
+		<text id="XMLID_96_" transform="matrix(1 0 0 1 112.0648 72.4441)" fill="#45B19C" font-family="'SourceSansPro-Semibold'" font-size="5.4px">Input Codes</text>
+	<rect id="XMLID_95_" x="107.563" y="64.078" fill="none" stroke="#80A750" stroke-width="1.35" width="54.308" height="12.607"/>
+	<rect id="XMLID_94_" x="191.051" y="136.443" fill="#FFFFFF" width="54.308" height="12.607"/>
+	
+		<text id="XMLID_93_" transform="matrix(1 0 0 1 195.1029 144.8098)" fill="#DE3E67" font-family="'SourceSansPro-Semibold'" font-size="5.4px">Sender</text>
+	<rect id="XMLID_92_" x="191.051" y="136.443" fill="none" stroke="#E17A3F" stroke-width="0.45" width="54.308" height="12.607"/>
+	<rect id="XMLID_91_" x="23.939" y="136.443" fill="#FFFFFF" width="54.308" height="12.607"/>
+	
+		<text id="XMLID_90_" transform="matrix(1 0 0 1 27.9906 144.8098)" fill="#80A750" font-family="'SourceSansPro-Semibold'" font-size="5.4px">Receiver</text>
+	<rect id="XMLID_89_" x="23.939" y="136.443" fill="none" stroke="#E17A3F" stroke-width="0.45" width="54.308" height="12.607"/>
+	<rect id="XMLID_88_" x="79.239" y="22.159" fill="#FFFFFF" width="27.425" height="12.607"/>
+	
+		<text id="XMLID_87_" transform="matrix(1 0 0 1 83.2904 30.5256)" fill="#231F20" font-family="'SourceSansPro-Semibold'" font-size="5.4px">Channel</text>
+	<rect id="XMLID_86_" x="79.239" y="22.159" fill="none" stroke="#231F20" stroke-width="0.45" width="27.425" height="12.607"/>
+	<rect id="XMLID_85_" x="107.563" y="94.525" fill="#FFFFFF" width="54.308" height="12.607"/>
+	
+		<text id="XMLID_84_" transform="matrix(1 0 0 1 112.0648 102.8913)" fill="#E17A3F" font-family="'SourceSansPro-Semibold'" font-size="5.4px">Output Codes</text>
+	<rect id="XMLID_83_" x="107.563" y="94.525" fill="none" stroke="#344D5C" stroke-width="1.35" width="54.308" height="12.607"/>
+	<rect id="XMLID_82_" x="107.564" y="50.121" fill="none" stroke="#231F20" stroke-width="1.35" width="54.308" height="98.48"/>
+	<text id="XMLID_81_" transform="matrix(1 0 0 1 115.139 131.4016)"><tspan x="0" y="0" fill="#344D5C" font-family="'SourceSansPro-Semibold'" font-size="8.1px">Compu</tspan><tspan x="24.988" y="0" fill="#344D5C" font-family="'SourceSansPro-Semibold'" font-size="8.1px">t</tspan><tspan x="27.896" y="0" fill="#344D5C" font-family="'SourceSansPro-Semibold'" font-size="8.1px">er</tspan></text>
+</g>
+</svg>

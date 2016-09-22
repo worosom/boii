@@ -54,8 +54,6 @@ def load_paramenters():
 	"""+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 			NETWORK 1
-		same as 'NETWORK 0' but with
-		recurrent_units = 2
 	"""
 	nn_params[1] = nn_params[0].copy()
 	nn_params[1]['batch_size'] = 143
@@ -76,8 +74,6 @@ def load_paramenters():
 	"""+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 			NETWORK 2
-		same as 'NETWORK 0' but with
-		recurrent_units = 3
 	"""
 	nn_params[2] = nn_params[0].copy()
 	nn_params[2]['batch_size'] = 143

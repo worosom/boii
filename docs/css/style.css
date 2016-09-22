@@ -1,0 +1,454 @@
+/*
+Theme Name: Gate56
+Theme URI: http://gate56.de/
+Author: Alexander Morosow
+Author URI: alexander.morosow@gmail.com
+Description: Gate56 is a theme created for Gate56 GmbH
+License:
+License URI:
+Tags:
+Text Domain: gatefiftysix
+
+
+*/
+
+/*
+    Menu
+*/
+section.unit.sixth {
+}
+.menu {
+  display: block;
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  bottom: 1rem;
+}
+
+.menu ul {
+  padding: 0;
+}
+
+.menu li {
+  padding: 0;
+  display: block;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  overflow: hidden;
+  height: 2rem;
+  width: 2rem;
+  margin: 0 auto;
+}
+
+.menu img {
+  height: 100%;
+  cursor: pointer;
+}
+
+/*
+		Elements
+*/
+
+
+html, body {
+	height: 100%;
+	font-size: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #FFFFFF;
+  color: #000000;
+  hyphens:auto;
+}
+
+#header {
+  min-height: 100vh;
+}
+
+#logo_wrap {
+  position: relative;
+  text-align: center;
+}
+
+#main_logo {
+  position: relative;
+  width: 66.67%;
+  padding: 4rem 0 0em 0;
+}
+
+#content {}
+
+.post {
+	position: relative;
+	height: 100%;
+	margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+}
+
+.sidebar {
+	min-height: 10px;
+  margin: 0;
+	height: 100%;
+}
+
+.fillHeight {
+  min-height: 100vh;
+}
+
+.dark {
+	background-color: #000000;
+}
+
+.dark *{
+  background-color: #000000;
+}
+
+.light {
+  background-color: #FFFFFF;
+}
+
+.light *{
+	background-color: #FFFFFF;
+}
+
+section.wide {
+  width: 150% !important;
+  margin-left: -25%;
+  padding-left: 25% !important;
+  padding-right: 25% !important;
+}
+
+.image.wide {
+  width: 100%;
+}
+
+.caption {
+  margin: 0 0 2rem;
+  overflow: hidden;
+}
+
+ul, ol {
+  margin: 0;
+}
+
+ul li, ol li {
+  padding-right: 2rem;
+  padding-bottom: .5rem;
+}
+
+ol {
+  list-style-type: upper-roman;
+}
+
+.image {
+  width: 66.67vw;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100%;
+}
+
+.image.low {
+  height: 33.334vh;
+}
+
+.scroll {
+  background-attachment: fixed;
+}
+
+.fillHeight {
+}
+
+#icon_container {
+  
+}
+
+#icon_container img {
+  margin-top: 10vh;
+  width: 50%;
+}
+
+#icon_container h3{
+  font-size: 1rem;
+  margin: 5vh 0 0 0;
+  color: #003A68;
+}
+
+#icon_container .third.fourth {
+  margin: 0 calc(25%/6) 5vh;
+}
+
+#icon_container .icon {
+  text-align: center;
+  padding: 0 0rem;
+}
+
+/*
+		Typography
+*/
+
+body {
+  font-family: "Source Code Pro", monospace;
+}
+
+.hyphenate {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+.donthyphenate {
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.menu a {
+  color: #FFFFFF;
+  font-family: "Source Sans Pro" , sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Code Pro", monospace;
+	clear: both;
+	font-weight: 700;
+	margin: 4rem 0 1rem 0;
+	text-rendering: optimizeLegibility;
+	letter-spacing: 0.03rem;
+  color: #000000;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #FFFFFF;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+  font-family: "Source Serif Pro", serif;
+}
+
+.dark blockquote {
+  color: #FFFFFF;
+}
+
+blockquote.reference {
+
+}
+
+.subhead {
+
+
+}
+
+.caption {
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1rem;
+	line-height: 2rem;
+  letter-spacing: .05rem;
+}
+
+.image_caption {
+  font-family: "Source Serif Pro", serif;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+}
+
+.dark .image_caption {
+  color: #FFFFFF;
+}
+
+.image_caption .prefix {
+  padding: 0 0 0 0;
+  display: block;
+}
+
+.image_caption .caption {
+  font-family: "Source Serif Pro", serif;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  position: relative;
+  left: 2rem;
+}
+
+.dark .subhead {
+
+}
+
+.dark .caption {
+	color: #FFFFFF;
+}
+
+.light .caption {
+	color: #000000;
+}
+
+li {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.5rem;
+}
+
+.dark li {
+  color: #FFFFFF;
+}
+
+/*
+		Footer
+*/
+
+#footer {
+
+}
+
+#footer .cta .caption {
+  padding-top: 1rem;
+	font-size: 1rem;
+	margin: 0;
+  font-weight: 400;
+}
+
+#footer .footer_wrap {
+	padding-top: 1.5rem;
+}
+
+/*
+		Impressum
+*/
+
+#impressum {
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+#impressum p{
+  font-size: .75rem;
+	position: relative;
+	top: -1ex;
+}
+
+#impressum b{
+  font-family: "Avenir", "Lato", sans-serif;
+  font-weight: normal;
+  font-weight: 400; 
+}
+
+#impressum span {
+  display: block;
+}
+
+#impressum #footer_logo {
+  height: 6rem;
+  margin-bottom: 1.75rem;
+}
+
+/*Small classes will only apply to viewports below 35.5em or 568px (with a 16px base)*/
+.center-small {text-align: center;}
+.hide-small {display: none;}
+@media (min-width: 35.5em) {
+  .hide-small {display: block;}
+  .center-small {text-align: inherit;}
+}
+
+/*Example of a "small to medium" breakpoint for a single-column layout (optional) */
+@media (max-width: 40.5em) {
+	.row.equal-units > .unit:first-of-type {padding-left: 0;}
+ 	.row.equal-units > .unit:last-child {padding-right: 0;}
+}
+
+@media (min-width: 10em) and (max-width: 60.5em) {
+  .block .unit.half p.caption {padding-right: 0}
+
+  .menu {padding: 0}
+
+  h1 {
+    white-space: normal;
+  }
+
+  #logo_wrap {
+  padding: 0 10vw 2rem 10vw;
+
+  }
+
+   /* All units can go full-width here */
+  .row .unit {
+    width: 100%;
+    min-height: 0;
+    left: 0;
+    /* Reset neg. margin for nested grids */
+    margin-left: inherit;
+  }
+  
+  .unit.wide {
+    width: 100% !important;
+    padding-left: 10vw !important;
+    padding-right: 10vw !important;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  #icon_container .unit {
+    width: 50%; 
+    font-size: 100%;
+  }
+
+  #icon_container .third.fourth {
+    margin: 0;
+  }
+
+  #footer {
+    padding: 0 12.5%;
+  }
+
+  #impressum {margin-top: 10vh;text-align: center;}
+  #impressum span {display: inline; margin-left: 1rem;}
+	#impressum p {}
+  #impressum > span:first-child {margin-left: 0;}
+}
+
+

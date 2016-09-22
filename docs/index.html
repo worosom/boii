@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="unit">
                                     <p class="caption"></p>
-                                    <p class="caption">To read the full paper on this topic -</p><a id="academia-button" href="https://independent.academia.edu/AlexanderMorosow"> visit my page on academia.edu</a>
+                                    <p class="caption">To read the full paper on this topic -</p><a id="academia-button" href="https://independent.academia.edu/AlexanderMorosow"> visit my page on academia.edu</a><script src="//a.academia-assets.com/javascripts/social.js"></script>
                                 </div>
                             </div>
 
@@ -120,14 +120,25 @@
                                         </p>
                                     </div>
                                     <div class="unit">
-                                    <p class="caption">Deep RNNs consist of many such individual networks stacked one after the other.<br>The three deep RNNs within boii have the following architecture:
+                                    <p class="caption">Deep RNNs consist of many such individual networks stacked one after the other.<br>The three deep RNNs within boii have the following architecture:</p>
                                         <ul style="list-style: none">
                                             <li><em>Network A</em><br>is 13 units deep with each unit consisting of 250 neurons.</li>
                                             <li><em>Network B</em><br>is 7 units deep with each unit consisting of 511 neurons.</li>
                                             <li><em>Network C</em><br>is 9 units deep with each unit consisting of 511 neurons.</li>
                                         </ul>
-                                    </p>
+                                    <h3 id="knobs">Knobs</h3>
                                     <p class="caption" style="">You can change the behaviour of the boii by using the knobs on the control-surface to mix/crossfade the outputs of the different networks.</p>
+                                    <p class="caption" style="">Turning the right knob against the clock will bias the mix so you will only be able to hear <em>Network A</em>, while turning it clockwise will make you hear the mix determined by the left knob.</p>
+                                    <p class="caption" style="">Turning the left knob will consequently determine if you hear <em>Network  B</em> or <em>Network C</em>.</p>
+
+                                    <h3 id="keys">Keys</h3>
+                                    <p class="caption">The 49 keys allow you to send notes with pitches ranging from C1 to C5 to the boii.</p>
+                                    <h3 id="">Pitch and Noise</h3>
+                                    <p class="caption">Moving this lever to the left and to the right will pitch the note(s) determined by the keyboard up or down consequently. Note that the pitch sent to the boii is continuous, but the output is quantized. This is because the algorithm has been trained with solo piano music which doesn't contain continuous pitch changes.</p>
+                                    <p class="caption">Pushing the lever away from you will fade the notes played on the keys into noise.</p>
+
+                                    <h3 id="proximity_sensor">Proximity Sensor</h3>
+                                    <p class="caption">Holding your hand over the proximity sensor will add audio from a microphone to the inputs of the RNNs. You will now hear anything coming through the microphone additionally to the keys through the boii.</p>
                                     </div>
                                 </div>
                             </div>
@@ -158,8 +169,16 @@
                 <section class="unit sixth"></section>
                 <section class="unit two-thirds">
                     <div class="post">
-                        <section class="unit dark wide">
+                        <section id="examples" class="unit dark wide">
                             <div class="unit">
+                                <h2>Examples</h2>
+                                <!--<input type="text" value=".5" class="dial">-->
+                                <audio controls>
+                                    <source src="mp3/gallery.mp3" type="audio/mpeg">
+                                </audio>
+                                <audio controls>
+                                    <source src="mp3/MODULAR_and_boii_jam_mix.mp3" type="audio/mpeg">
+                                </audio>
                             </div>
                         </section>
                     </div>
@@ -171,8 +190,7 @@
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script src="js/Hyphenator.js"></script>
-        <script src="//a.academia-assets.com/javascripts/social.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <!--<script src="js/jquery.knob.min.js"></script>-->
         <script src="js/main.js"></script>
         <script>
             <!--Google Analytics-->

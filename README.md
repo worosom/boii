@@ -200,6 +200,9 @@ That's all! The `train.py` script will save a png of the model graph, the model 
 
 ## Addendum
 
+Keras was great to start working on artificial neural networks:
+[Keras.io](https://keras.io)
+
 The code in this repository was inspired and resulted from    
 [GitHub MattVitelli/GRUV](https://github.com/MattVitelli/GRUV)
 
@@ -208,6 +211,9 @@ https://github.com/kjw0612/awesome-rnn
 
 Here is some really good information on RNN training and gradient descent:  
 http://sebastianruder.com/optimizing-gradient-descent/
+
+Written Memories: Understanding, Deriving and Extending the LSTM
+http://r2rt.com/written-memories-understanding-deriving-and-extending-the-lstm.html
 
 Example sound sample by user NLM from http://freesound.org  
 https://www.freesound.org/people/NLM/sounds/178316/

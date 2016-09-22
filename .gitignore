@@ -95,3 +95,5 @@ ENV/
 datasets/*
 model_weights/*
 docs/wav/*
+train_autoenc.py
+train_wavenet.py

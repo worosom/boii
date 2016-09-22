@@ -293,7 +293,7 @@ blockquote.reference {
 .image_caption {
   font-family: "Source Serif Pro", serif;
   font-size: .9rem;
-  letter-spacing: .1rem;
+  letter-spacing: .025rem;
 }
 
 .dark .image_caption {
@@ -308,7 +308,7 @@ blockquote.reference {
 .image_caption .caption {
   font-family: "Source Serif Pro", serif;
   font-size: .9rem;
-  letter-spacing: .1rem;
+  letter-spacing: .025rem;
   position: relative;
   left: 2rem;
 }

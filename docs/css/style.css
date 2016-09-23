@@ -360,6 +360,10 @@ li {
   background-color: #A5C0CC;
 }
 
+#footer a {
+  white-space: nowrap;
+}
+
 /*
 		Impressum
 */

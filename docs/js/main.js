@@ -25,7 +25,7 @@ $(function() {
     thickness: .25,
     min: 0,
     max: 1,
-    step: 1/256.,
+    step: 1/512.,
     angleArc: 250,
     angleOffset:-125,
     fgColor:'#2255EE',
@@ -73,7 +73,7 @@ $(function() {
     thickness: .25,
     min: 0,
     max: 1,
-    step: 1/256.,
+    step: 1/512.,
     angleArc: 250,
     angleOffset:-125,
     fgColor:'#2255EE',
@@ -121,7 +121,7 @@ $(function() {
     thickness: .25,
     min: 0,
     max: 1,
-    step: 1/256.,
+    step: 1/512.,
     angleArc: 250,
     angleOffset:-125,
     fgColor:'#2255EE',
@@ -156,5 +156,34 @@ $(function() {
     		example3_chan2.pause();
     		$(".example3_button").css({"background-position": "0 0"});
     	}
+	});
+
+	$("a").click(function (event) {
+		if(location.hostname == "mbp" && $(this).attr('href').length > 2){
+			event.preventDefault()
+			var $elem = $('<div></div>');
+			var $p = $("<p>Please visit<br><a>https://worosom.github.io/boii</a><br>to follow this link.</p>");
+			$p.css({
+				"font-size": "1.5rem",
+				"position": "relative",
+				"top": "50%",
+				"marginTop": "-1.5rem"
+			});
+			$p.appendTo($elem);
+			$elem.css({
+				"position": "fixed",
+				"top": "25%",
+				"left": "0",
+				"width": "100vw",
+				"height": "25vh",
+				"background-color": "#A5C0CC",
+				"text-align": "center",
+				"display": "none"});
+			$elem.addClass("banner")
+			$elem.appendTo("body");
+			$elem.fadeIn(500).delay(3000).fadeOut("slow").promise().then(function(){
+					$(".banner").remove();
+			});
+		}
 	});
 });

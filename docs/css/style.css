@@ -95,6 +95,15 @@ html, body {
 	height: 100%;
 }
 
+.unit.example_container{
+  padding: 1rem 0;
+}
+
+.example_container .image_caption{
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 .fillHeight {
   min-height: 100vh;
 }
@@ -214,6 +223,11 @@ em {
   -ms-hyphens: none;
 }
 
+a{
+  font-weight: bold;
+  color: #2255EE!important;
+}
+
 .menu a {
   color: #FFFFFF;
   font-family: "Source Sans Pro" , sans-serif;
@@ -298,6 +312,7 @@ blockquote.reference {
   font-family: "Source Serif Pro", serif;
   font-size: .9rem;
   letter-spacing: .025rem;
+  text-align: left;
 }
 
 .dark .image_caption {

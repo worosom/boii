@@ -1,12 +1,160 @@
 $(function() {
-	$(".dial").knob({
-		'min':0,
-		'max':1,
-		'step':1/256.,
-		'angleArc':250,
-		'angleOffset':-125,
-		'displayInput':false,
-		'fgColor':'#FFFFFF'
+	example1_chan1 = new Audio('mp3/gallery_clean.mp3');
+	example1_chan2 = new Audio('mp3/gallery_boii.mp3');
+	example1_chan1.volume = .5;
+	example1_chan2.volume = .5;
+
+	example2_chan1 = new Audio('mp3/jam_clean.mp3');
+	example2_chan2 = new Audio('mp3/jam_boii.mp3');
+	example2_chan1.volume = .5;
+	example2_chan2.volume = .5;
+
+	example3_chan1 = new Audio('mp3/last_day_clean.mp3');
+	example3_chan2 = new Audio('mp3/last_day_boii.mp3');
+	example3_chan1.volume = .5;
+	example3_chan2.volume = .5;
+
+	/**************************************/
+
+    $(".example1").knob({
+    width: 150,
+    height: 150,
+    displayInput: false,
+    displayPrevious: false,
+    cursor: 10,
+    thickness: .25,
+    min: 0,
+    max: 1,
+    step: 1/256.,
+    angleArc: 250,
+    angleOffset:-125,
+    fgColor:'#2255EE',
+    change: function (value) {
+    	example1_chan1.volume = 1.-value;
+    	example1_chan2.volume = value;
+    },
+    'draw': function () {
+        if ($(this.i).siblings(".play").length > 0) return
+        	var pos1 = parseInt($(this.i).css("marginLeft").replace('px', ''));
+        	var pos2 = parseInt($(this.i).css("marginTop").replace('px', ''));
+    	    var $elem = $("<span></span>").addClass("btn_play");
+    	    $elem.addClass("example1")
+	        $elem.insertAfter(this.i).css({
+        	    position: "absolute",
+    	        marginLeft: (pos1-109) + "px",
+	            marginTop: (pos2 + 40) + "px"
+        	});
+    	}
+	});
+	$("body").on("click", ".example1", function () {
+		if (example1_chan1.paused && example1_chan1.readyState && example1_chan2.readyState){
+			if (example1_chan1.currentTime != example1_chan2.currentTime ) {
+				example1_chan2.currentTime = example1_chan1.currentTime;
+			}
+    		example1_chan1.play();
+    		example1_chan2.play();
+    		$(".example1").css({"background-position": "0 100%"});
+    	}
+    	else {
+    		example1_chan1.pause();
+    		example1_chan2.pause();
+    		$(".example1").css({"background-position": "0 0"});
+    	}
 	});
 
+	/**************************************/
+
+	$(".example2").knob({
+    width: 150,
+    height: 150,
+    displayInput: false,
+    displayPrevious: false,
+    cursor: 10,
+    thickness: .25,
+    min: 0,
+    max: 1,
+    step: 1/256.,
+    angleArc: 250,
+    angleOffset:-125,
+    fgColor:'#2255EE',
+    change: function (value) {
+    	example2_chan1.volume = 1.-value;
+    	example2_chan2.volume = value;
+    },
+    'draw': function () {
+        if ($(this.i).siblings(".play").length > 0) return
+        	var pos1 = parseInt($(this.i).css("marginLeft").replace('px', ''));
+        	var pos2 = parseInt($(this.i).css("marginTop").replace('px', ''));
+    	    var $elem = $("<span></span>").addClass("btn_play");
+    	    $elem.addClass("example2_button")
+	        $elem.insertAfter(this.i).css({
+        	    position: "absolute",
+    	        marginLeft: (pos1-109) + "px",
+	            marginTop: (pos2 + 40) + "px"
+        	});
+    	}
+	});
+	$("body").on("click", ".example2_button", function () {
+		if (example2_chan1.paused && example2_chan1.readyState && example2_chan2.readyState){
+			if (example2_chan1.currentTime != example2_chan2.currentTime ) {
+				example2_chan2.currentTime = example2_chan1.currentTime;
+			}
+    		example2_chan1.play();
+    		example2_chan2.play();
+    		$(".example2_button").css({"background-position": "0 100%"});
+    	}
+    	else {
+    		example2_chan1.pause();
+    		example2_chan2.pause();
+    		$(".example2_button").css({"background-position": "0 0"});
+    	}
+	});
+
+	/**************************************/
+
+	$(".example3").knob({
+    width: 150,
+    height: 150,
+    displayInput: false,
+    displayPrevious: false,
+    cursor: 10,
+    thickness: .25,
+    min: 0,
+    max: 1,
+    step: 1/256.,
+    angleArc: 250,
+    angleOffset:-125,
+    fgColor:'#2255EE',
+    change: function (value) {
+    	example3_chan1.volume = 1.-value;
+    	example3_chan2.volume = value;
+    },
+    'draw': function () {
+        if ($(this.i).siblings(".play").length > 0) return
+        	var pos1 = parseInt($(this.i).css("marginLeft").replace('px', ''));
+        	var pos2 = parseInt($(this.i).css("marginTop").replace('px', ''));
+    	    var $elem = $("<span></span>").addClass("btn_play");
+    	    $elem.addClass("example3_button")
+	        $elem.insertAfter(this.i).css({
+        	    position: "absolute",
+    	        marginLeft: (pos1-109) + "px",
+	            marginTop: (pos2 + 40) + "px"
+        	});
+    	}
+	});
+	$("body").on("click", ".example3_button", function () {
+		if (example3_chan1.paused && example3_chan1.readyState && example3_chan2.readyState){
+			if (example3_chan1.currentTime != example3_chan2.currentTime ) {
+				example3_chan2.currentTime = example3_chan1.currentTime;
+			}
+    		example3_chan1.play();
+    		example3_chan2.play();
+    		$(".example3_button").css({"background-position": "0 100%"});
+    	}
+    	else {
+    		example3_chan1.pause();
+    		example3_chan2.pause();
+    		$(".example3_button").css({"background-position": "0 0"});
+    	}
+	});
 });

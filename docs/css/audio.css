@@ -1,0 +1,9 @@
+.btn_play{
+	position: absolute;
+	width:70px;
+	height:70px;
+	background-image: url(../img/play.svg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0 0%;
+}

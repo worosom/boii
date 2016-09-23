@@ -22,7 +22,8 @@ section.unit.sixth {
   width: 100%;
   position: fixed;
   text-align: center;
-  bottom: 1rem;
+  bottom: 0;
+  background-color: #A5C0CC;
 }
 
 .menu ul {
@@ -30,17 +31,18 @@ section.unit.sixth {
 }
 
 .menu li {
-  padding: 0;
+  padding: 2rem 0;
+  margin: 0 auto;
   display: block;
+  float: left;
   list-style: none;
+  font-family: "Source Code Pro", monospace;
 }
 
 .menu a {
   display: block;
   overflow: hidden;
-  height: 2rem;
-  width: 2rem;
-  margin: 0 auto;
+  font-family: "Source Code Pro", monospace;
 }
 
 .menu img {
@@ -228,11 +230,6 @@ a{
   color: #2255EE!important;
 }
 
-.menu a {
-  color: #FFFFFF;
-  font-family: "Source Sans Pro" , sans-serif;
-}
-
 h1,
 h2,
 h3,
@@ -360,18 +357,7 @@ li {
 */
 
 #footer {
-
-}
-
-#footer .cta .caption {
-  padding-top: 1rem;
-	font-size: 1rem;
-	margin: 0;
-  font-weight: 400;
-}
-
-#footer .footer_wrap {
-	padding-top: 1.5rem;
+  background-color: #A5C0CC;
 }
 
 /*

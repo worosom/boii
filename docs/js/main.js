@@ -41,8 +41,8 @@ $(function() {
     	    $elem.addClass("example1")
 	        $elem.insertAfter(this.i).css({
         	    position: "absolute",
-    	        marginLeft: (pos1-109) + "px",
-	            marginTop: (pos2 + 40) + "px"
+    	        marginLeft: (pos1-100) + "px",
+	            marginTop: (pos2 + 45) + "px"
         	});
     	}
 	});
@@ -89,8 +89,8 @@ $(function() {
     	    $elem.addClass("example2_button")
 	        $elem.insertAfter(this.i).css({
         	    position: "absolute",
-    	        marginLeft: (pos1-109) + "px",
-	            marginTop: (pos2 + 40) + "px"
+    	        marginLeft: (pos1-100) + "px",
+	            marginTop: (pos2 + 45) + "px"
         	});
     	}
 	});
@@ -137,8 +137,8 @@ $(function() {
     	    $elem.addClass("example3_button")
 	        $elem.insertAfter(this.i).css({
         	    position: "absolute",
-    	        marginLeft: (pos1-109) + "px",
-	            marginTop: (pos2 + 40) + "px"
+    	        marginLeft: (pos1-100) + "px",
+	            marginTop: (pos2 + 45) + "px"
         	});
     	}
 	});
@@ -157,6 +157,22 @@ $(function() {
     		$(".example3_button").css({"background-position": "0 0"});
     	}
 	});
+
+    
+    $(window).bind('scroll', chk_scroll);
+    $("#backbutton").animate({width: "100%"}).data("scaled", false);
+    function chk_scroll(e) {
+        var elem = $(e.currentTarget);
+        if ($("#1").offset().top - elem.scrollTop() < 0) {
+            if(!$("#backbutton").data("scaled")){
+                $("#backbutton").animate({width: "50%"});
+            }
+            $("#backbutton").data("scaled", true);
+        } 
+        else if ($("#backbutton").data("scaled")){
+            $("#backbutton").data("scaled", false).animate({width: "100%"}).promise();
+        }
+    }
 
 	$("a").click(function (event) {
 		if(location.hostname == "mbp" && $(this).attr('href').length > 2){

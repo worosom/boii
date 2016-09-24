@@ -49,6 +49,12 @@ section.unit.sixth {
   height: 100%;
   cursor: pointer;
 }
+#backbutton {
+  background-image:url('../img/boii_sign_p1.svg');
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
 
 /*
 		Elements
@@ -76,8 +82,8 @@ html, body {
 
 #main_logo {
   position: relative;
-  width: 66.67%;
-  padding: 4rem 0 0em 0;
+  width: 64.37544%;
+  padding: 0 0 0em 0;
 }
 
 #content {}
@@ -417,9 +423,8 @@ li {
     white-space: normal;
   }
 
-  #logo_wrap {
-  padding: 0 10vw 2rem 10vw;
-
+  #backbutton{
+    width: 10vw;
   }
 
    /* All units can go full-width here */

@@ -49,6 +49,14 @@ section.unit.sixth {
   height: 100%;
   cursor: pointer;
 }
+
+#backbutton_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
 #backbutton {
   background-image:url('../img/boii_sign_p1.svg');
   width: 100%;
@@ -423,7 +431,7 @@ li {
     white-space: normal;
   }
 
-  #backbutton{
+  #backbutton_container{
     width: 10vw;
   }
 
